@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
-
-Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');;
+Route::get('/dashboard', [dashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -71,3 +69,5 @@ Route::put('/berita/{berita}', [BeritaController::class, 'update'])->name('berit
 Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 
 Route::resource('users', AkunController::class); 
+
+Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);

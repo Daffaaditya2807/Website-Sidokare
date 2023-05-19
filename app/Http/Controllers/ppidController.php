@@ -44,20 +44,12 @@ class ppidController extends Controller
     }
     public function update($id, Request $request)
     {
-        // $this->validate($request,[
-        //     'dokumen'=>'mimes:doc,docx,pdf,xls,xlsx,pdf,ppt,pptx'
-        // ])
-        // $dokumen = $request->file('dokumen');
-        // $nama_dokumen='FT'.date('ymdhis').'.'.$request->file('dokumen')->
-        // getClientOriginalExtension();
-        // $dokumen->move('dokumen/',$nama_dokumen);
 
         $ppid = pengajuan_ppid::find($id);
-    $ppid->title = $request->input('doc_hasil_ppid');
-    $ppid->content = $request->input('content');
-    $ppid->save();
-        $ppid->update($request->except(['_token','submit']));
-        return redirect('/formpengajuan')->with('success', 'Berita updated successfully.');
+        $ppid->doc_hasil_ppid = $request->input('doc_hasil_ppid');
+        $ppid->doc_hasil_ppid = $request->input('content');
+        $ppid->save();
+        return redirect('/formpengajuan')->with('success', 'Berita berhasil diperbarui.');
     }
     public function destroy($id)
     {
@@ -66,25 +58,33 @@ class ppidController extends Controller
             $ppid->delete();
     
             // Redirect pengguna ke tampilan sebelumnya dengan pesan sukses
-            return Redirect::back()->with('success', 'Data berhasil dihapus.');
+            return redirect()->back()->with('success', 'Data berhasil dihapus.');
         } catch (QueryException $e) {
             if ($e->getCode() == 1451) {
                 // Redirect pengguna ke tampilan sebelumnya dengan pesan error pada target ID
-                return Redirect::back()->withErrors(['error' => 'Tidak dapat menghapus data karena adanya keterkaitan dengan data lain.'])->withInput(['target_id' => $id]);
+                return redirect()->back()->withErrors(['error' => 'Tidak dapat menghapus data karena adanya keterkaitan dengan data lain.'])->withInput(['target_id' => $id]);
             } else {
                 // Redirect pengguna ke tampilan sebelumnya dengan pesan error umum
-                return Redirect::back()->withErrors(['error' => 'Terjadi kesalahan saat menghapus data.'])->withInput(['target_id' => $id]);
+                return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat menghapus data.'])->withInput(['target_id' => $id]);
             }
         }
-}
-    public function search(Request $request){
-        if($request->has('search')){
-            $ppid = pengajuan_ppid::where('nama_pelapor', 'LIKE', '%'.$request->search.'%')->get();
-        }else{
-            $ppid = pengajuan_ppid::all();
-        }
-        return view('formpengajuan',['ppid'=>$ppid]);
     }
+    
+public function search(Request $request)
+{
+    if ($request->has('search')) {
+        $ppid = pengajuan_ppid::where('nama_pelapor', 'LIKE', '%' . $request->search . '%')->get();
+
+        if ($ppid->isEmpty()) {
+            return redirect()->back()->with('error', 'Data yang dicari tidak ditemukan.');
+        }
+    } else {
+        $ppid = pengajuan_ppid::all();
+    }
+
+    return view('formpengajuan', ['ppid' => $ppid]);
+}
+
     public function filter(Request $request){
         $start_date= $request -> start_date;
         $end_date = $request -> end_date;

@@ -20,9 +20,16 @@
             <div class="search--notification--profile">
                 <div class="search">
                     <form action="/formpengajuan/search" method="GET">
-                    <input type="search" name="search" placeholder="Cari Pengajuan" required>
-                </form>
+                        <input type="search" name="search" placeholder="Cari Pengajuan" required>
+                    </form>
+                
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                 </div>
+                
                 
                 <div class="col-md-2">
                     <form method="GET" action="/formpengajuan/filter">
@@ -122,18 +129,45 @@
                                   
                                     <td><span><a  class="ri-edit-line edit" href="/ppid/{{ $w->id }}/edit">Detail</a></span>
                                     <td><span><a  class="ri-edit-line edit" href="/ppid/{{ $w->id }}/export"  target="_blank">Export</a></span>
-                                        <span><form action="{{ route('ppid.destroy', $w->id) }}" method="POST" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            @php
-                                                $ppidId = $w->id; // Simpan nilai ID dalam variabel $ppidId
-                                            @endphp
-                                            @if($errors->has('error') && old('target_id') == $ppidId)
-                                                <div class="alert alert-danger">
-                                                    {{ $errors->first('error') }}
-                                                </div>
-                                            @endif
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
+                                        <span>
+                                            <button class="ri-delete-bin-line delete" data-bs-toggle="modal" data-bs-target="#exampleModal" ></button>
+                                            <!-- Button trigger modal --></button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Data akan dihapus secara permanen</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin menghapus data?
+            </div>
+            <div class="modal-footer">
+                <form action="{{ route('ppid.destroy', $w->id) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    @php
+                        $ppidId = $w->id; // Simpan nilai ID dalam variabel $ppidId
+                    @endphp
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@php
+    $ppidId = $w->id; // Simpan nilai ID dalam variabel $ppidId
+@endphp
+@if($errors->has('error') && old('target_id') == $ppidId)
+    <div class="alert alert-danger">
+        {{ $errors->first('error') }}
+    </div>
+@endif
+
                                         </form>
                                         
                                         </span></td>

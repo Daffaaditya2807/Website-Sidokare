@@ -147,7 +147,7 @@
 
                <div class="form-group">
                             <label for="isi_berita">Upload Hasil PPID</label>
-                            <input type="file" class="form-control" id="RW" value="{{ $ppid->doc_hasil_ppid }}" >
+                            <input type="file" class="form-control" id="doc_hasil_ppid" value="{{ $ppid->doc_hasil_ppid }}" >
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>

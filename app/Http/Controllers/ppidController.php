@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\keberatan;
 use App\Models\pengajuan_ppid;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -51,16 +53,30 @@ class ppidController extends Controller
         // $dokumen->move('dokumen/',$nama_dokumen);
 
         $ppid = pengajuan_ppid::find($id);
+    $ppid->title = $request->input('doc_hasil_ppid');
+    $ppid->content = $request->input('content');
+    $ppid->save();
         $ppid->update($request->except(['_token','submit']));
         return redirect('/formpengajuan')->with('success', 'Berita updated successfully.');
     }
     public function destroy($id)
     {
-        $ppid = pengajuan_ppid::find($id);
-        $ppid->delete();
+        try {
+            $ppid = pengajuan_ppid::find($id);
+            $ppid->delete();
     
-        return redirect()->route('formpengajuan.index')->with('success', 'Berita deleted successfully.');
-    }
+            // Redirect pengguna ke tampilan sebelumnya dengan pesan sukses
+            return Redirect::back()->with('success', 'Data berhasil dihapus.');
+        } catch (QueryException $e) {
+            if ($e->getCode() == 1451) {
+                // Redirect pengguna ke tampilan sebelumnya dengan pesan error pada target ID
+                return Redirect::back()->withErrors(['error' => 'Tidak dapat menghapus data karena adanya keterkaitan dengan data lain.'])->withInput(['target_id' => $id]);
+            } else {
+                // Redirect pengguna ke tampilan sebelumnya dengan pesan error umum
+                return Redirect::back()->withErrors(['error' => 'Terjadi kesalahan saat menghapus data.'])->withInput(['target_id' => $id]);
+            }
+        }
+}
     public function search(Request $request){
         if($request->has('search')){
             $ppid = pengajuan_ppid::where('nama_pelapor', 'LIKE', '%'.$request->search.'%')->get();

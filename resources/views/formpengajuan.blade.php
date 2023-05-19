@@ -125,8 +125,17 @@
                                         <span><form action="{{ route('ppid.destroy', $w->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
+                                            @php
+                                                $ppidId = $w->id; // Simpan nilai ID dalam variabel $ppidId
+                                            @endphp
+                                            @if($errors->has('error') && old('target_id') == $ppidId)
+                                                <div class="alert alert-danger">
+                                                    {{ $errors->first('error') }}
+                                                </div>
+                                            @endif
                                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
                                         </form>
+                                        
                                         </span></td>
                                                     </tr>
                                                     @endforeach
@@ -134,16 +143,11 @@
                                                 </div>
                                               </div>
                                             </div></span>
-                                    
                             </tbody>
                         </table>
                     </div>
-                   
                 </div>
-        
             </div>
-         
-      
          </section>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

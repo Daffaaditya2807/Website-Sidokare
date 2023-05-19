@@ -4,11 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-      </head>
-        <title>Pengajuan</title>
+        <title>Berita</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
@@ -21,7 +17,7 @@
             </div>
             <div class="search--notification--profile">
                 <div class="search">
-                    <input type="text" placeholder="Cari Pengajuan">
+                    <input type="text" placeholder="Cari Berita">
                     <button> <i class="ri-search-2-line"></i></button>
                 </div>
                 <div class="notification--profile">
@@ -45,13 +41,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('') }}"id="active--link">
+                        <a href="{{ url('') }}">
                             <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('') }}">
+                        <a href="{{ url('') }} "id="active--link">
                             <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                         </a>
@@ -77,15 +73,16 @@
 
             <div class="main--content">
                 <div class="overview">
-    <h1>Berita</h1>
-
-    @if (session('success'))
+                <div class="title">
+                   <h2 title="section--title">Berita </h2>
+                   @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
     @endif
-    
-    <a href="{{ route('berita.create') }}" class="btn btn-primary mb-3">Tambah Berita</a>
+    <a href="{{ route('berita.create')}}" class="btn btn-primary mb-3">Tambah Berita</a>
+                </div>
+  
     
     <table class="table">
         <thead>
@@ -103,7 +100,7 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $berita->judul_berita }}</td>
                 <td>{{ $berita->tanggal_publikasi }}</td>
-                <<td>
+                <td>
                     @if ($berita->id_kategori === 'ktg_berita01')
                         BUM Desa
                     @elseif ($berita->id_kategori === 'ktg_berita02')
@@ -121,14 +118,16 @@
                     @endif
                 </td>
                 
-                <td>
-                    <a href="{{ route('berita.edit', $berita->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                    <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
-                    </form>
-                </td>
+              <td>
+    <div class="button-container">
+        <a href="{{ route('berita.edit', $berita->id) }}" class="ri-edit-line edit"></a>
+        <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')"></button>
+        </form>
+    </div>
+</td>
             </tr>
             @endforeach
         </tbody>

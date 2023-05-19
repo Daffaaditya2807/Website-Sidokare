@@ -43,13 +43,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('#tabelpengajuan.html') }}">
+                    <a href="/formpengajuan">
                         <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
                         <span class="sidebar--item">Pengajuan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('') }}">
+                    <a href="/berita">
                         <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
                         <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                     </a>

@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/berita">
                             <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                         </a>

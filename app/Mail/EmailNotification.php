@@ -22,6 +22,7 @@ class EmailNotification extends Mailable
         $this->email = $email;
         $this->nama = $nama;
         $this->isi = $isi;
+        $this->foto = $foto;
         
     }
 

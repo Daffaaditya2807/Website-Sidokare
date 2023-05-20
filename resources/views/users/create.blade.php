@@ -105,7 +105,7 @@
             <div class="main--content">
                 <div class="overview">
 
-    <h1>Tambah Akun Baru</h1>
+    <h1>Tambah Pegawai Baru</h1>
 
     <form action="{{ route('users.store') }}" method="POST">
         @csrf

@@ -93,10 +93,6 @@ public function search(Request $request)
         ->get();
         return view('formpengajuan', compact('ppid'));
     }
-    public function downloadpdf(){
-        $ppid = pengajuan_ppid::all();
-        $pdf = PDF::loadView('formpengajuan',['ppid'=>$ppid]);
-        return $pdf->download('laporan_ppid.pdf');
-    }
+  
 }
 

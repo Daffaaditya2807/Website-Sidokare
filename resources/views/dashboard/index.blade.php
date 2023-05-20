@@ -9,6 +9,27 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<style>
+    .charts-card {
+        width: 100%;
+        max-width: 980px; /* Atur lebar sesuai kebutuhan */
+        height: 280px; /* Atur tinggi sesuai kebutuhan */
+        background-color: #f0f0f0;
+        /* border: 1px solid #ccc; */
+        border-radius: 5px;
+        /* padding: 10px; */
+    }
+    .charts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #myChart {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+</style>
 <body>
 
      <!--- header  -->
@@ -18,9 +39,9 @@
             <h2>E- <span>Sidokare</span></h2>
         </div>
         <div class="search--notification--profile">
-            <div class="search">
-                <input type="text" placeholder="Cari Pengajuan">
-                <button> <i class="ri-search-2-line"></i></button>
+            <div class="">
+                <!-- <input type="text" placeholder="Cari Pengajuan">
+                <button> <i class="ri-search-2-line"></i></button> -->
             </div>
             <div class="notification--profile">
                 <div class="picon bell">
@@ -37,12 +58,7 @@
         <div class="main--content">
             <div class="overview">
                 <div class="title">
-                   <h2 title="section--title">Overview</h2>
-                   <select name="date" id="date" class="dropdown">
-                    <option value="today">Hari Ini</option>
-                    <option value="lastmonth">Bulan lalu</option>
-                    <option value="lastyaer">Tahun Ini</option>
-                   </select>
+                   <h2 title="section--title">Jumlah Pengajuan</h2>
                 </div>
                 <div class="cards">
                   <div class="card card-1">
@@ -95,9 +111,9 @@
             </div>
             <div class="charts">
 
-                <div class="charts-card">
+                <div class="charts-card" >
                   <p class="chart-title">Grafik Keluhan</p>
-                  <canvas id="myChart"></canvas>
+                  <canvas id="myChart"  ></canvas>
                     <script>
                         var data = <?php echo json_encode($data); ?>;
                         var labels = data.map(function(item) {
@@ -114,12 +130,15 @@
                                 datasets: [{
                                     label: 'Grafik',
                                     data: values,
-                                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                    borderColor: 'rgba(255, 99, 132, 1)',
-                                    borderWidth: 1
+                                    backgroundColor: 'rgba(196, 226, 229)',
+                                    // borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1,
+                                   
                                 }]
                             },
+                            
                             options: {
+                                
                                 scales: {
                                     yAxes: [{
                                         ticks: {

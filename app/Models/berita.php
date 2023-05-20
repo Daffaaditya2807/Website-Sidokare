@@ -18,4 +18,12 @@ class Berita extends Model
         'foto',
         'unggah_file_lain',
     ];
+    public static function search($query)
+    {
+        return self::where('judul_berita', 'like', '%'.$query.'%')
+            ->orWhere('tanggal_publikasi', 'like', '%'.$query.'%')
+            ->orWhere('id_kategori', 'like', '%'.$query.'%')
+            ->orWhere('isi_berita', 'like', '%'.$query.'%')
+            ->get();
+    }
 }

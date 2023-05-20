@@ -4,14 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-      </head>
-        <title>Pengajuan</title>
+        <title>edit Berita</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/assets/css/stylesheet.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
+     
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
     <body>
@@ -22,9 +18,9 @@
                 <h2>E- <span>Sidokare</span></h2>
             </div>
             <div class="search--notification--profile">
-                <div class="search">
-                    <input type="text" placeholder="Cari Pengajuan">
-                    <button> <i class="ri-search-2-line"></i></button>
+                <div class=>
+                    <!-- <input type="text" placeholder="Cari Pengajuan">
+                    <button> <i class="ri-search-2-line"></i></button> -->
                 </div>
                 <div class="notification--profile">
                     <div class="picon bell">
@@ -47,13 +43,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('') }}"id="active--link">
+                        <a href="{{ url('') }}">
                             <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('') }}">
+                        <a href="{{ url('') }}"id="active--link">
                             <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                         </a>
@@ -78,25 +74,30 @@
             </div>
             <div class="main--content">
                 <div class="overview">
-                    <h1>Edit Berita</h1>
+                    <!-- <h1>Edit Berita</h1> -->
+                    <div class="title">
+                   <div class="container">
+                    <header>Formulir Pembuatan Berita Desa Sidokare</header>
             
                     <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-            
-                        <div class="form-group">
-                            <label for="judul_berita">Judul Berita</label>
-                            <input type="text" class="form-control" id="judul_berita" name="judul_berita" value="{{ $berita->judul_berita }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="tanggal_publikasi">Tanggal dan Jam Publikasi</label>
-                            <input type="datetime-local" class="form-control" id="tanggal_publikasi" name="tanggal_publikasi" value="{{ date('Y-m-d\TH:i', strtotime($berita->tanggal_publikasi)) }}" required>
-                        </div>
-            
-                        <div class="form-group">
-                            <label for="id_kategori">Kategori</label>
-                            <select class="form-control" id="id_kategori" name="id_kategori" required>
-                                <option value="">Pilih Kategori</option>
+                        <form>
+                         <div class="row">
+                             <div class="column">
+                                 <label for="judul">Judul Berita</label>
+                                 <input type="text" class="form-control" id="judul_berita" name="judul_berita" value="{{ $berita->judul_berita }}" required>
+                             </div>
+                             <div class="column">
+                                 <label for="tanggal_publikasi">Tanggal Terbit</label>
+                                 <input type="datetime-local" class="form-control" id="tanggal_publikasi" name="tanggal_publikasi" value="{{ date('Y-m-d\TH:i', strtotime($berita->tanggal_publikasi)) }}" required>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                                 <label for="id_kategori">Kategori Berita</label>
+                                 <select class="form-control" id="id_kategori" name="id_kategori" required>
+                                 <option value="">Pilih Kategori</option>
                                 @for ($i = 1; $i <= 7; $i++)
                                     @php
                                         $kategoriValue = 'ktg_berita' . str_pad($i, 2, '0', STR_PAD_LEFT);
@@ -126,26 +127,36 @@
                                     <option value="{{ $kategoriValue }}" @if ($berita->id_kategori === $kategoriValue) selected @endif>{{ $kategoriText }}</option>
                                 @endfor
                             </select>
-                        </div>
-            
-                        <div class="form-group">
-                            <label for="isi_berita">Isi Berita</label>
+                                 
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <label for="isi_berita">Isi Berita</label>
                             <textarea class="form-control" id="isi_berita" name="isi_berita" required>{{ $berita->isi_berita }}</textarea>
-                        </div>
-            
-                        <div class="form-outline mb-4">
+                             </div>
+                             <div class="form-outline mb-4">
+                             <div class="form-foto">
                             <label for="foto" class="form-label">Foto</label>
-                            <div class="form-foto">
+                        
                                 @if ($berita->foto)
                                     <img src="{{ asset('storage/berita/'.$berita->foto) }}" alt="{{ $berita->foto }}">
                                 @endif
                                 <input type="file" id="foto" name="foto" style="display: none;">
                             </div>
+                            <br>
                             <input type="text" name="foto" id="foto" disabled class="form-control mt-2" value="{{ $berita->foto }}">
+                            <br>
                             <button class="btn btn-secondary" onclick="document.getElementById('foto').disabled = true; document.getElementById('foto').value = ''; document.getElementById('ganti-foto').click(); event.preventDefault();">Ganti Foto</button>
                             <input type="file" id="ganti-foto" name="ganti-foto" style="display: none;">
+                          
                             <button class="btn btn-secondary" onclick="document.getElementById('ganti-foto').disabled = true; document.getElementById('ganti-foto').value = ''; document.getElementById('foto').disabled = false; document.getElementById('foto').click(); event.preventDefault();">Ganti File Foto</button>
                         </div>
+                         </div>
+                         <button type="submit" class="btn btn-primary">Simpan</button>
+                     </form>
+            
+                      
                         
                         {{-- <div class="form-group">
                             <label for="unggah_file_lain">Unggah File Lain</label>
@@ -155,7 +166,6 @@
                             <input type="file" class="form-control-file" id="unggah_file_lain" name="unggah_file_lain">
                         </div> --}}
                         
-                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -165,5 +175,4 @@
             <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
             <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
             </body>
-            </html>
-            
+            </html>

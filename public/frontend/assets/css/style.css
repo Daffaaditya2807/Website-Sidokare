@@ -589,6 +589,18 @@ box-shadow: none;
   .button input[type="button"]:hover{
     background: var(--maincolor);
   }
+  .button {
+    background-color:var(--maincolor);
+    padding: 12px 30px;
+    border-radius: 30px;
+    border:none;
+    color: var(--black-000);
+    font-size: 16px;
+    text-transform: capitalize;
+    transition: all 0.5s ease;
+    box-shadow: var(--shadow-black-300);
+    font-weight: 500;
+  }
   
   @media (max-width: 950px) {
     .container{

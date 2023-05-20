@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\EmailController;
-
+use App\Http\Controllers\AkunsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -71,3 +71,5 @@ Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('b
 Route::resource('users', AkunController::class); 
 
 Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
+
+Route::resource('akun', AkunsController::class);

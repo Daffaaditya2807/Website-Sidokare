@@ -5,13 +5,31 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Pagination\Paginator;
 
 class BeritaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
+
     {
-        $beritas = Berita::all();
-        return view('berita.index', compact('beritas'));
+        $query = $request->input('query');
+        $beritas = Berita::search($query);
+    
+        // Mengatur jumlah item yang ditampilkan per halaman
+        $perPage = 1000;
+    
+        // Mendapatkan nomor halaman dari query string jika ada, atau default ke 1
+        $currentPage = Paginator::resolveCurrentPage('page');
+    
+        // Membuat instance Paginator untuk koleksi berita
+        $pagination = new Paginator($beritas->slice(($currentPage - 1) * $perPage, $perPage), $beritas->count());
+        $pagination->withPath(route('berita.index'));
+    
+        return view('berita.index', [
+            'beritas' => $pagination,
+            'query' => $query,
+        ]);
+    
     }
 
     public function create()
@@ -25,7 +43,7 @@ class BeritaController extends Controller
             'tanggal_publikasi' => 'nullable',
             'id_kategori' => 'required',
             'isi_berita' => 'required',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10048',
             'unggah_file_lain' => 'nullable',
         ]);
     
@@ -35,8 +53,9 @@ class BeritaController extends Controller
         }
     
         $berita = Berita::create($validatedData);
-    
         return redirect()->route('berita.index')->with('success', 'Berita created successfully.');
+
+
     }
     
     
@@ -56,7 +75,7 @@ public function update(Request $request, $id)
         'tanggal_publikasi' => 'nullable',
         'id_kategori' => 'required',
         'isi_berita' => 'required',
-        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10048',
         'unggah_file_lain' => 'nullable',
     ]);
 
@@ -92,4 +111,15 @@ public function update(Request $request, $id)
     
         return redirect()->route('berita.index')->with('success', 'Berita deleted successfully.');
     }
-}    
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $beritas = Berita::search($query);
+
+        // Lakukan apa pun yang diperlukan dengan data beritas yang ditemukan
+        // Misalnya, lempar data ke view untuk ditampilkan
+
+        return view('berita.search', compact('beritas', 'query'));
+    }
+}

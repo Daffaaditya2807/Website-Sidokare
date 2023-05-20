@@ -4,12 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-      </head>
         <title>Pengajuan</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
     <body>
@@ -20,9 +17,9 @@
                 <h2>E- <span>Sidokare</span></h2>
             </div>
             <div class="search--notification--profile">
-                <div class="search">
-                    <input type="text" placeholder="Cari Pengajuan">
-                    <button> <i class="ri-search-2-line"></i></button>
+                <div class="">
+                    <!-- <input type="text" placeholder="Cari Pengajuan">
+                    <button> <i class="ri-search-2-line"></i></button> -->
                 </div>
                 <div class="notification--profile">
                     <div class="picon bell">
@@ -74,10 +71,14 @@
                 </ul>
     
             </div>
-
+<!-- Tab;e -->
             <div class="main--content">
                 <div class="overview">
-                    <h1>Tambah Berita</h1>
+                <div class="title">
+                   <!-- <h2 title="section--title">Formulir Pengajuan </h2> -->
+                   <div class="container">
+                    <header>Formulir Pembuatan Berita Desa Sidokare</header>
+               
             
                     @if ($errors->any())
                     <div class="alert alert-danger">
@@ -91,8 +92,52 @@
             
                     <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-            
-                        <div class="form-group">
+                        <form>
+                         <div class="row">
+                             <div class="column">
+                                 <label for="judul">Judul Berita</label>
+                                 <input type="text" id="Judul Berita" class="form-control" placeholder="Judul Berita"  name="judul_berita" value="{{ old('judul_berita') }}" required>
+                             </div>
+                             <div class="column">
+                                 <label for="tanggal_publikasi">Tanggal Terbit</label>
+                                 <input type="datetime-local" class="form-control" id="tanggal_publikasi" placeholder="Tanggal Terbit"name="tanggal_publikasi" value="{{ old('tanggal_publikasi') }}" required>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                                 <label for="id_kategori">Kategori Berita</label>
+                                 <!-- <input type="text" id="Kategori Berita" placeholder="Kategori Berita"> -->
+                                 <select class="form-control" id="id_kategori" name="id_kategori" required>
+                                <option value="ktg_berita01">BUM Desa</option>
+                                <option value="ktg_berita02">PKK</option>
+                                <option value="ktg_berita03">Pemerintah Desa</option>
+                                <option value="ktg_berita04">Potensi Desa</option>
+                                <option value="ktg_berita05">Pembangunan Masyarakat</option>
+                                <option value="ktg_berita06">Pemberdayaan Masyarakat</option>
+                                <option value="ktg_berita07">Pembinaan Masyarakat</option>
+                            </select>
+                                 
+                             </div>
+                             <div class="column">
+                                 <label for="foto">Foto</label>
+                                 <input type="file" class="form-control-file" id="foto" name="foto">
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                                 <label for="isi_berita">Isi Berita</label>
+                                 <textarea class="form-control" id="isi_berita" name="isi_berita" required>{{ old('isi_berita') }}</textarea>
+                             </div>
+                         </div>
+                         <button type="submit" class="btn btn-primary">Simpan</button>
+                        @if(session('message'))
+                        <div class="custom-alert custom-alert-{{ session('type') }}">
+                            <span class="custom-alert-message">{{ session('message') }}</span>
+                        </div>
+@endif
+
+                     </form>
+                        <!-- <div class="form-group">
                             <label for="judul_berita">Judul Berita</label>
                             <input type="text" class="form-control" id="judul_berita" name="judul_berita" value="{{ old('judul_berita') }}" required>
                         </div>
@@ -124,14 +169,14 @@
                         <div class="form-group">
                             <label for="foto">Foto</label>
                             <input type="file" class="form-control-file" id="foto" name="foto">
-                        </div>
+                        </div> -->
             
                         {{-- <div class="form-group">
                             <label for="unggah_file_lain">Unggah File Lain</label>
                             <input type="file" class="form-control-file" id="unggah_file_lain" name="unggah_file_lain">
                         </div> --}}
             
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <!-- <button type="submit" class="btn btn-primary">Simpan</button> -->
                     </form>
                 </div>
             </div>
@@ -141,4 +186,3 @@
 <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
 </body>
 </html>
-

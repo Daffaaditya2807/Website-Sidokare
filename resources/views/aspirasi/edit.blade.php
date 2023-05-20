@@ -1,40 +1,39 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
+<html lang="en">
+<head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Berita</title>
+        <title>edit aspirasi</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
+     
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
-    </head>
-    <body>
-         <!--- header  -->
-         <section class="header">
-            <div class="logo">
-                <i class="ri-menu-line icon icon-0 menu"></i>
-                <h2>E- <span>Sidokare</span></h2>
-            </div>
-            <div class="search--notification--profile">
+</head>
+<body>
+     <!--- header  -->
+     <section class="header">
+        <div class="logo">
+            <i class="ri-menu-line icon icon-0 menu"></i>
+            <h2>E- <span>Sidokare</span></h2>
+        </div>
+        <div class="search--notification--profile">
             <div class="search">
-                    <form action="{{ route('berita.index') }}" method="GET">
-                        
-                     
-                        <input type="text" name="query" placeholder="Cari Pengajuan" value="{{ $query }}" class="search-input"   <button type="submit" class="search-button"><i class="ri-search-2-line"></i></button>
-                    </form>
-                </div>
-                <div class="notification--profile">
-                    <div class="picon bell">
-                        <i class="ri-notification-2-line"></i>
-                    </div>
-                    <div class="picon profile">
-                        <img src="{{ asset('img/1.png') }}" alt="">
-                    </div>
+                <input type="text" placeholder="">
+                <button> <i class=""></i></button>
+            </div>
+            <div class="notification--profile">
+                <div class="picon bell">
+                    <i class="ri-notification-2-line"></i>
+                </div>
+                <div class="picon profile">
+                    <img src="{{ asset('frontend/assets/img/1.png') }}" alt="">
                 </div>
             </div>
-    
-        </section>
-        <section class="main">
+        </div>
+
+    </section>
+    <section class="main">
             <div class="sidebar">
                 <ul class="sidebar--items">  
                     <li>
@@ -50,7 +49,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/aspirasi">
+                        <a href="/aspirasi"id="active--link">
                             <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Aspirasi</span>
                         </a>
@@ -62,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/berita"id="active--link">
+                        <a href="/berita">
                             <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                         </a>
@@ -109,78 +108,59 @@
                         </form>
                     </li> 
                 </ul>
-    
             </div>
-    
-              
-        
-            <div class="main--content">
+
+        <div class="main--content">
                 <div class="overview">
-                <div class="title">
-                   <h2 title="section--title">Berita </h2>
-                   @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-    <a href="{{route('berita.create')}}" class="button1">Tambah Berita</a>
+                    <!-- <h1>Edit Berita</h1> -->
+                    <div class="title">
+                   <div class="container">
+                    <header>Formulir Edit Aspirasi Desa Sidokare</header>
+            
+                    <form action="{{ route('aspirasi.update', $aspirasi->id_pengajuan_aspirasi) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <form>
+                         <div class="row">
+                             <div class="column">
+                                 <label for="judul">Judul Aspirasi</label>
+                                 <input type="text" class="form-control" id="judul_aspirasi" name="judul_aspirasi" value="{{ $aspirasi->judul_aspirasi }}" required>
+                             </div>
+                             <div class="column">
+                                 <label for="tanggal_publikasi">Status</label>
+                                 <input type="text" class="form-control" id="status_aspirasi" name="status_aspirasi" value="{{ $aspirasi->status }}" required>
+                             </div>
+                         </div>
+
+                         <div class="row">
+                            <div class="column">
+                                <label for="isi_berita">Isi Aspirasi</label>
+                               <textarea class="form-control" id="isi_aspirasi" name="isi_aspirasi" required>{{ $aspirasi->isi_aspirasi }}</textarea>
+                            </div>
+                        <div class="form-foto">
+                            <label for="foto" class="form-label">Foto</label>
+                        
+                                @if ($aspirasi->upload_file_pendukung)
+                                    <img src="{{ asset('storage/aspirasi/'.$aspirasi->upload_file_pendukung) }}" alt="{{ $aspirasi->upload_file_pendukung }}">
+                                @endif
+                                <input type="file" id="foto" name="foto" style="display: none;">
+                        </div>
+                        <br>
+                            <input type="text" name="foto" id="foto" disabled class="form-control mt-2" value="{{ $aspirasi->upload_file_pendukung }}">
+                        <br>
+                        <input type="file" name="dokumen">
+                         <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
-  
-    
-    <div class="table">
-        <table>
-        <thead>
-            <tr>
-                <th>  No</th>
-                <th>Judul</th>
-                <th>Tanggal Publikasi</th>
-                <th>Kategori</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($beritas as $index => $berita)
-            <tr>
-                <td>{{ $index + 1 }}</td>
-                <td>{{ $berita->judul_berita }}</td>
-                <td>{{ $berita->tanggal_publikasi }}</td>
-                <td>
-                    @if ($berita->id_kategori === 'ktg_berita01')
-                        BUM Desa
-                    @elseif ($berita->id_kategori === 'ktg_berita02')
-                        PKK
-                    @elseif ($berita->id_kategori === 'ktg_berita03')
-                        Pemerintah Desa
-                    @elseif ($berita->id_kategori === 'ktg_berita04')
-                        Potensi Desa
-                    @elseif ($berita->id_kategori === 'ktg_berita05')
-                        Pembangunan Masyarakat
-                    @elseif ($berita->id_kategori === 'ktg_berita06')
-                        Pemberdayaan Masyarakat
-                    @elseif ($berita->id_kategori === 'ktg_berita07')
-                        Pembinaan Masyarakat
-                    @endif
-                </td>
-                
-                <td>
-    <div class="button-container">
-        <a href="{{ route('berita.edit', $berita->id) }}" class="ri-edit-line edit"></a>
-        <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" class="d-inline">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')"></button>
-        </form>
-    </div>
-</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    </div>
-    </div>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-<script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>
-<script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
-</body>
-</html>
+            </div>      
+                               
+                    </form>
+                </div>
+            
+                </div>
+            </section>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+            <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>
+            <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
+            <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+       </body>
+       </html>

@@ -54,10 +54,7 @@ class BeritaController extends Controller
     
         $berita = Berita::create($validatedData);
         return redirect()->route('berita.index')->with('success', 'Berita created successfully.');
-
-
     }
-    
     
     
     public function edit($id)

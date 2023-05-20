@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/formpengajuan">
+                        <a href="/aspirasi">
                             <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Aspirasi</span>
                         </a>
@@ -105,7 +105,7 @@
             <div class="main--content">
                 <div class="overview">
 
-    <h1>Tambah Akun Baru</h1>
+    <h1>Tambah Pegawai Baru</h1>
 
     <form action="{{ route('users.store') }}" method="POST">
         @csrf

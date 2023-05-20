@@ -10,13 +10,16 @@ class aspirasiController extends Controller
 {
     public function index()
     {
-        $aspirasi = DB::table('pengajuan_aspirasi')->get();
+        $aspirasi = DB::table('pengajuan_aspirasi')
+            ->join('akun', 'pengajuan_aspirasi.id_akun', '=', 'akun.id_akun')
+            ->get();
         return view('aspirasi.index', compact('aspirasi'));
     }
 
     public function edit($id)
     {
         $aspirasi = DB::table('pengajuan_aspirasi')
+                        ->join('akun', 'pengajuan_aspirasi.id_akun', '=', 'akun.id_akun')
                         ->where('id_pengajuan_aspirasi', $id)
                         ->first();
         

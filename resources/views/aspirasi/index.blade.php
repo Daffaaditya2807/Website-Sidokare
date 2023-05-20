@@ -126,7 +126,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Judul Aspirasi</th>
+                            <th>Nama Pelapor</th>
                             <th>Judul Aspirasi</th>
                             <th>Status</th>
                             <th>Aksi</th>
@@ -136,7 +136,7 @@
                     @foreach ($aspirasi as $index => $aspirasi)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $aspirasi->judul_aspirasi }}</td>
+                        <td>{{ $aspirasi->nama }}</td>
                         <td>{{ $aspirasi->judul_aspirasi }}</td>
                         <td>{{ $aspirasi->status }}</td>
                         <td>

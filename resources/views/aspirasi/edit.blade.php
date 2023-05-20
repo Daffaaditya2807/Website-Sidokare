@@ -123,6 +123,10 @@
                         <form>
                          <div class="row">
                              <div class="column">
+                             <div class="column">
+                                 <label for="judul">Nama Pelapor</label>
+                                 <input type="text" class="form-control" id="nama_pelapor" name="nama_pelapor" value="{{ $aspirasi->nama }}" required>
+                             </div>
                                  <label for="judul">Judul Aspirasi</label>
                                  <input type="text" class="form-control" id="judul_aspirasi" name="judul_aspirasi" value="{{ $aspirasi->judul_aspirasi }}" required>
                              </div>

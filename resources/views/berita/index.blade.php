@@ -34,7 +34,86 @@
             </div>
     
         </section>
-        @include('sidebar.sidebar')
+        <section class="main">
+            <div class="sidebar">
+                <ul class="sidebar--items">  
+                    <li>
+                        <a href="/dashboard" >
+                            <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
+                            <span class="sidebar--item">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/formpengajuan">
+                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="sidebar--item">Pengajuan PPID</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/formpengajuan">
+                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="sidebar--item">Pengajuan Aspirasi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/formpengajuan">
+                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="sidebar--item">Pengajuan Keluhan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/berita"id="active--link">
+                            <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
+                            <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/profile">
+                            <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
+                            <span class="sidebar--item" style="white-space: nowrap;">Profil Pengguna</span>
+                        </a>
+                    </li> 
+        
+                    <li>
+                        <a href="/akun">
+                            <span class="icon icon-5"><i class="ri-user-2-line"></i></span>
+                            <span class="sidebar--item" style="white-space: nowrap;">Daftar Akun</span>
+                        </a>
+                    </li> 
+        
+                    @guest
+                        <!-- Pengguna adalah role pegawai -->
+                    @else
+                        <!-- Pengguna adalah role admin -->
+                        @if(auth()->user()->role === 'Admin')
+                            <li>
+                                <a href="/users">
+                                    <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
+                                    <span class="sidebar--item" style="white-space: nowrap;">Daftar Pegawai</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endguest
+        
+                </ul>
+                <ul class="sidebar--bottom-items">
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+        
+                            <x-responsive-nav-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-responsive-nav-link>
+                        </form>
+                    </li> 
+                </ul>
+    
+            </div>
+    
+              
+        
             <div class="main--content">
                 <div class="overview">
                 <div class="title">

@@ -2,7 +2,7 @@
     <div class="sidebar">
         <ul class="sidebar--items">  
             <li>
-                <a href="{{ url('') }}" id="active--link">
+                <a href="/dashboard" id="active--link">
                     <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
                     <span class="sidebar--item">Dashboard</span>
                 </a>
@@ -26,15 +26,22 @@
                 </a>
             </li>
             <li>
-                <a href="/berita/index">
+                <a href="/berita">
                     <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
                     <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                 </a>
             </li>
             <li>
-                <a href="{{ url('') }}">
+                <a href="/profile">
                     <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
                     <span class="sidebar--item" style="white-space: nowrap;">Profil Pengguna</span>
+                </a>
+            </li> 
+
+            <li>
+                <a href="/akun">
+                    <span class="icon icon-5"><i class="ri-user-2-line"></i></span>
+                    <span class="sidebar--item" style="white-space: nowrap;">Daftar Akun</span>
                 </a>
             </li> 
 
@@ -42,11 +49,11 @@
                 <!-- Pengguna adalah role pegawai -->
             @else
                 <!-- Pengguna adalah role admin -->
-                @if(auth()->user()->role === 'admin')
+                @if(auth()->user()->role === 'Admin')
                     <li>
-                        <a href="{{ url('') }}">
+                        <a href="/users">
                             <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
-                            <span class="sidebar--item" style="white-space: nowrap;">Daftar Akun</span>
+                            <span class="sidebar--item" style="white-space: nowrap;">Daftar Pegawai</span>
                         </a>
                     </li>
                 @endif
@@ -56,12 +63,10 @@
         <ul class="sidebar--bottom-items">
             <li>
                 <a href="{{ url('') }}">
-                    <span class="icon icon-5"><i class="ri-logout-box-r-line"></i></span>
+                    <span class="icon icon-6"><i class="ri-logout-box-r-line"></i></span>
                     <span class="sidebar--item">Logout</span>
                 </a>
             </li> 
         </ul>
 
     </div>
-</section>
-    

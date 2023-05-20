@@ -4,14 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use Illuminate\Pagination\Paginator;
 
 class AkunController extends Controller
 {
   
-    public function index()
+    public function index(Request $request)
     {
-        $users = Users::all();
-        return view('users.index', compact('users'));
+        $query = $request->input('query');
+        $users = Users::search($query);
+    
+        // Mengatur jumlah item yang ditampilkan per halaman
+        $perPage = 1000;
+    
+        // Mendapatkan nomor halaman dari query string jika ada, atau default ke 1
+        $currentPage = Paginator::resolveCurrentPage('page');
+    
+        // Membuat instance Paginator untuk koleksi berita
+        $pagination = new Paginator($users->slice(($currentPage - 1) * $perPage, $perPage), $users->count());
+        $pagination->withPath(route('users.index'));
+    
+        return view('users.index', [
+            'users' => $pagination,
+            'query' => $query,
+        ]);
     }
     
     public function create()
@@ -25,6 +41,7 @@ class AkunController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'name' => 'required',
+            'role' => 'required|in:Admin,Pegawai',
         ]);
     
         $existingUser = Users::where('email', $validatedData['email'])->first();
@@ -41,6 +58,7 @@ class AkunController extends Controller
             $user->email = $validatedData['email'];
             $user->password = $encryptedPassword;
             $user->name = $validatedData['name'];
+            $user->role = $validatedData['role'];
             $user->save();
     
             // Lanjutkan dengan tindakan lainnya atau respon yang sesuai
@@ -59,15 +77,27 @@ class AkunController extends Controller
     
     public function update(Request $request, $id)
     {
+        // Validasi data yang dikirim dari tampilan
         $validatedData = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'required|min:8',
             'name' => 'required',
-            
+            'role' => 'required|in:Admin,Pegawai',
         ]);
-        $users = Users::findOrFail($id);
     
-        return redirect()->route('users.index')->with('success', 'Akun berhasil diperbarui.');
+        // Mencari pengguna yang akan diperbarui berdasarkan ID
+        $user= Users::findOrFail($id);
+    
+        // Memperbarui nilai atribut pengguna
+        $user->email = $validatedData['email'];
+        $user->password = bcrypt($validatedData['password']);
+        $user->name = $validatedData['name'];
+        $user->role = $validatedData['role'];
+        $user->save();
+    
+        // Lanjutkan dengan tindakan lainnya, misalnya mengirimkan respons atau melakukan redirect
+        
+        return redirect()->route('users.index')->with('success', 'Akun berhasil diedit');
     }
     
     public function destroy(string $id)

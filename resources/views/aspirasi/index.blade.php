@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/formpengajuan"id="active--link">
+                        <a href="/aspirasi"id="active--link">
                             <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Aspirasi</span>
                         </a>

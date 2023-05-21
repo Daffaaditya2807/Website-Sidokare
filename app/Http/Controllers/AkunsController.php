@@ -57,7 +57,7 @@ class AkunsController extends Controller
 
         $akun->save();
     
-        return redirect()->route('akun.index')->with('success', 'Akun berhasil ditambahkan.');
+        return redirect()->route('akun.index');
     }
     
     public function edit(string $id_akun)
@@ -81,7 +81,7 @@ class AkunsController extends Controller
         $request->merge(['status_verif' => 1]);
         $akun->update($request->all());
     
-        return redirect()->route('akun.index')->with('success', 'Akun berhasil diperbarui.');
+        return redirect()->route('akun.index');
     }
     
     public function destroy(string $id_akun)
@@ -89,7 +89,7 @@ class AkunsController extends Controller
         $akun = Akun::findOrFail($id_akun);
         $akun->delete();
     
-        return redirect()->route('akun.index')->with('success', 'Akun berhasil dihapus.');
+        return redirect()->route('akun.index');
     }
     
     

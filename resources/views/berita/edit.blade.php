@@ -7,7 +7,7 @@
         <title>Edit Berita</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
-     
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
     <body>
@@ -197,7 +197,7 @@
                             <button class="btn btn-secondary" onclick="document.getElementById('ganti-foto').disabled = true; document.getElementById('ganti-foto').value = ''; document.getElementById('foto').disabled = false; document.getElementById('foto').click(); event.preventDefault();">Ganti File Foto</button>
                         </div>
                          </div>
-                         <button type="submit" class="btn btn-primary">Simpan</button>
+                         <button type="submit" id="btnSimpan" class="btn btn-primary">Simpan</button>
                      </form>
             
                       
@@ -218,5 +218,21 @@
             <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>
             <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
             <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('btnSimpan').addEventListener('click', function() {
+        // Lakukan proses penyimpanan data ke database di sini
+        // Setelah proses berhasil, tampilkan notifikasi menggunakan SweetAlert
+
+        // Contoh notifikasi menggunakan SweetAlert
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil di edit',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    });
+</script>
             </body>
             </html>

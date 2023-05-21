@@ -53,7 +53,8 @@ class BeritaController extends Controller
         }
     
         $berita = Berita::create($validatedData);
-        return redirect()->route('berita.index')->with('success', 'Berita created successfully.');
+        return redirect()->route('berita.index');
+        
     }
     
     
@@ -97,7 +98,7 @@ public function update(Request $request, $id)
 
     // ... lanjutkan dengan kode lainnya
 
-    return redirect()->route('berita.index')->with('success', 'Berita updated successfully.');
+    return redirect()->route('berita.index');
 }
 
 
@@ -106,7 +107,7 @@ public function update(Request $request, $id)
         $berita = Berita::findOrFail($id);
         $berita->delete();
     
-        return redirect()->route('berita.index')->with('success', 'Berita deleted successfully.');
+        return redirect()->route('berita.index');
     }
 
     public function search(Request $request)

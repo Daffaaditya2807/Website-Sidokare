@@ -66,7 +66,7 @@ class AkunController extends Controller
         }
     
     
-        return redirect()->route('users.index')->with('success', 'Akun berhasil ditambahkan.');
+        return redirect()->route('users.index');
     }
     
     public function edit(string $id)
@@ -97,7 +97,7 @@ class AkunController extends Controller
     
         // Lanjutkan dengan tindakan lainnya, misalnya mengirimkan respons atau melakukan redirect
         
-        return redirect()->route('users.index')->with('success', 'Akun berhasil diedit');
+        return redirect()->route('users.index');
     }
     
     public function destroy(string $id)
@@ -105,7 +105,7 @@ class AkunController extends Controller
         $users = Users::findOrFail($id);
         $users->delete();
     
-        return redirect()->route('users.index')->with('success', 'Akun berhasil dihapus.');
+        return redirect()->route('users.index');
     }
     
 }

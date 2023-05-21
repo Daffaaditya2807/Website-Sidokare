@@ -18,13 +18,13 @@
             <h2>E- <span>Sidokare</span></h2>
         </div>
         <div class="search--notification--profile">
-            <div class="search">
-                <input type="text" placeholder="">
-                <button> <i class=""></i></button>
+            <div class="">
+                <!-- <input type="text" placeholder="">
+                <button> <i class=""></i></button> -->
             </div>
-            <div class="notification--profile">
-                <div class="picon bell">
-                    <i class="ri-notification-2-line"></i>
+            <div class="">
+                <!-- <div class="picon bell">
+                    <i class="ri-notification-2-line"></i> -->
                 </div>
                 <div class="picon profile">
                     <img src="{{ asset('frontend/assets/img/1.png') }}" alt="">
@@ -148,6 +148,7 @@
                                 <label for="isi_berita">Isi Aspirasi</label>
                                <textarea class="form-control" id="isi_aspirasi" name="isi_aspirasi" required>{{ $aspirasi->isi_aspirasi }}</textarea>
                             </div>
+                            <div class="form-outline mb-4">
                         <div class="form-foto">
                             <label for="foto" class="form-label">Foto</label>
                         

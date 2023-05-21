@@ -114,11 +114,6 @@
             <div class="overview">
                 <div class="title">
                    <h2 title="section--title">Tabel Aspirasi </h2>
-                   <select name="date" id="date" class="dropdown">
-                    <option value="today">Hari Ini</option>
-                    <option value="lastmonth">Bulan lalu</option>
-                    <option value="lastyaer">Tahun Ini</option>
-                   </select>
                 </div>
 
                 <div class="table">

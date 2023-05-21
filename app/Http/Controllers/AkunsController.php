@@ -4,14 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Akun;
-
+use Illuminate\Pagination\Paginator;
 class AkunsController extends Controller
 {
   
-    public function index()
+    public function index(Request $request)
     {
-        $akun = Akun::all();
-        return view('akun.index', compact('akun'));
+        $query = $request->input('query');
+        $akun = Akun::search($query);
+    
+        // Mengatur jumlah item yang ditampilkan per halaman
+        $perPage = 1000;
+    
+        // Mendapatkan nomor halaman dari query string jika ada, atau default ke 1
+        $currentPage = Paginator::resolveCurrentPage('page');
+    
+        // Membuat instance Paginator untuk koleksi berita
+        $pagination = new Paginator($akun->slice(($currentPage - 1) * $perPage, $perPage), $akun->count());
+        $pagination->withPath(route('akun.index'));
+    
+        return view('akun.index', [
+            'akun' => $pagination,
+            'query' => $query,
+        ]);
     }
     
     public function create()

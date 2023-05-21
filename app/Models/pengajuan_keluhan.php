@@ -9,4 +9,10 @@ class pengajuan_keluhan extends Model
 {
     use HasFactory;
     protected $table = 'pengajuan_keluhan'; 
+    protected $fillable = [
+        // Daftar kolom yang diizinkan untuk mass assignment
+        'status',
+        'doc_hasil_keluhan',
+        '_token',
+    ];
 }

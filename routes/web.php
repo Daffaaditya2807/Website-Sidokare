@@ -75,6 +75,9 @@ Route::post('/kirim-email', [EmailController::class, 'kirimEmail']);
 Route::get('/keluhan', [keluhanController::class, 'keluhan'])->name('keluhan.index');
 Route::get('/keluhan/{id}/edit', [keluhanController::class, 'edit']);
 Route::put('/keluhan/{id}', [keluhanController::class, 'update'])->name('keluhan.update');
+Route::get('/keluhan/{id}/export', [keluhanController::class, 'export'])->name('keluhan.export');
+Route::get('/keluhan/search', [keluhanController::class, 'search']);
+Route::get('/keluhan/filter', [keluhanController::class, 'filter']);
 Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
 
 Route::resource('akun', AkunsController::class);

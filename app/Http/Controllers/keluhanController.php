@@ -45,4 +45,32 @@ class keluhanController extends Controller
 
         return redirect('/keluhan')->with('error', 'Berita tidak ditemukan.');
     }
+    public function export($id){
+        $ppid = pengajuan_keluhan::find($id);
+        return view('exportkeluhan-pdf', compact(['ppid']));
+    }
+    public function search(Request $request)
+    {
+        if ($request->has('search')) {
+            $ppid = pengajuan_keluhan::where('judul_laporan', 'LIKE', '%' . $request->search . '%')->orwhere('kategori_laporan', 'LIKE', '%' . $request->search . '%')
+                ->get();
+
+            if ($ppid->isEmpty()) {
+                return redirect()->back()->with('error', 'Data yang dicari tidak ditemukan.');
+            }
+        } else {
+            $ppid = pengajuan_keluhan::all();
+        }
+
+        return view('keluhan', ['ppid' => $ppid]);
+    }
+    public function filter(Request $request)
+    {
+        $start_date = $request->start_date;
+        $end_date = $request->end_date;
+        $ppid = pengajuan_keluhan::whereDate('tanggal_kejadian', '>=', $start_date)
+            ->whereDate('tanggal_kejadian', '<=', $end_date)
+            ->get();
+        return view('keluhan', compact('ppid'));
+    }
 }

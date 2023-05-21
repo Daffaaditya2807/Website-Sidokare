@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/formpengajuan">
+                        <a href="/keluhan">
                             <span class="icon icon-2"><i class="ri-file-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Keluhan</span>
                         </a>

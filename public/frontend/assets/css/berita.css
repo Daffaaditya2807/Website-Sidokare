@@ -104,3 +104,18 @@ button{
   border: 1.2px solid var(--black-400);
   margin-top: 5px;
 }
+#role{
+  width: 100%;
+  font-weight: 400;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1.2px solid var(--black-400);
+  margin-top: 5px;
+}
+.btn btn-primary{
+  border: none;
+  padding: 10px 20px;
+  background: var(--maincolor);
+  color: #ffffff;
+  border-radius: 3px;
+}

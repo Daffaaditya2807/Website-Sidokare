@@ -20,7 +20,7 @@
             </div>
             <div class="search--notification--profile">
                 <div class="search">
-                    <input type="text" placeholder="Cari Pengajuan">
+                    <input type="text" placeholder="Cari Akun Pegawai">
                     <button> <i class="ri-search-2-line"></i></button>
                 </div>
                 <div class="notification--profile">
@@ -115,15 +115,19 @@
 
             <div class="main--content">
                 <div class="overview">
-    <h1>Daftar Akun</h1>
+                <div class="title">
+                   <h2 title="section--title">Tambah Akun Baru</h2>
 
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
-
-    <a href="{{ route('akun.create') }}" class="btn btn-primary mb-3">Tambah Akun</a>
+    <a href="{{ route('akun.create') }}" class="button1">Tambah Akun</a>
+                </div>
+  
+<!-- 
+    <a href="{{ route('akun.create') }}" class="btn btn-primary mb-3">Tambah Akun</a> -->
 
     <table class="table">
         <thead>
@@ -145,12 +149,20 @@
                     <td>{{ $data->nama }}</td>
                     <td>{{ $data->nomor_telepon }}</td>
                     <td>
-                        <a href="{{ route('akun.edit', $data->id_akun) }}" class="btn btn-primary">Edit</a>
+                    <div class="button-container">
+                    <a href="{{ route('akun.edit', $data->id_akun) }}" class="ri-edit-line edit"></a>
                         <form action="{{ route('akun.destroy', $data->id_akun) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')">Hapus</button>
-                        </form>
+                            <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')"></button>
+                        </form> 
+    </div>
+                        <!-- <a href="{{ route('akun.edit', $data->id_akun) }}" class="ri-edit-line edit"></a>
+                        <form action="{{ route('akun.destroy', $data->id_akun) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')"></button>
+                        </form> -->
                     </td>
                 </tr>
             @endforeach

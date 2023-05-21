@@ -9,6 +9,8 @@
         <title>Daftar Pegawai</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita1.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
+        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
     <body>
@@ -136,13 +138,7 @@
             <input type="text" name="name" class="form-control" required>
                              </div>
                          </div>
-                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        @if(session('message'))
-                        <div class="custom-alert custom-alert-{{ session('type') }}">
-                            <span class="custom-alert-message">{{ session('message') }}</span>
-                        </div>
-@endif
-
+                         <button type="submit" id="btnSimpan" class="btn btn-primary">Simpan</button>
                      </form>
        
 </div>
@@ -150,5 +146,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
 <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('btnSimpan').addEventListener('click', function() {
+        // Lakukan proses penyimpanan data ke database di sini
+        // Setelah proses berhasil, tampilkan notifikasi menggunakan SweetAlert
+
+        // Contoh notifikasi menggunakan SweetAlert
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil disimpan',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    });
+</script>
 </body>
 </html>

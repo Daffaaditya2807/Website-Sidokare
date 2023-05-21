@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pengajuan</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita1.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita1.css') }}">   
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
     <body>
@@ -157,6 +157,7 @@
                              <label for="nama">Nama</label>
             <input type="text" name="nama" class="form-control" required>
                          </div>
+                        </div>
                          <div class="row">
                              <div class="column">
                              <label for="role">User</label>
@@ -169,7 +170,7 @@
                              <div class="column">
                              <input type="hidden" name="status_verif" value="1">
         <input type="hidden" name="status_verif" value="{{ rand(10000, 99999) }}">
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="submit" id="btnSimpan" class="btn btn-primary">Simpan</button>
                         </div>
                       
                          </div>
@@ -216,15 +217,32 @@
             <input type="text" name="nomor_telepon" class="form-control" required>
         </div>
         <input type="hidden" name="status_verif" value="1">
-        <input type="hidden" name="status_verif" value="{{ rand(10000, 99999) }}"> <!-- Generate random OTP (5 digit) -->
-<!-- 
-      > 
+        <input type="hidden" name="status_verif" value="{{ rand(10000, 99999) }}">  Generate random OTP (5 digit) -->
 
+      
+    </form>
 
 </div>
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
 <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('btnSimpan').addEventListener('click', function() {
+        // Lakukan proses penyimpanan data ke database di sini
+        // Setelah proses berhasil, tampilkan notifikasi menggunakan SweetAlert
+
+        // Contoh notifikasi menggunakan SweetAlert
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil disimpan',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    });
+</script>
 <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
 </body>
 </html>

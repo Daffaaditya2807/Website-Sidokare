@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Storage;
 
 class aspirasiController extends Controller
 {
@@ -32,11 +33,27 @@ class aspirasiController extends Controller
         $judulAspirasi = $request->input('judul_aspirasi');
         $isiAspirasi = $request->input('isi_aspirasi');
         $status = $request->input('status_aspirasi');
+        $docFile = $request->file('doc_file');
+
+        if ($docFile) {
+            $fileName = $id . '_' . $docFile->getClientOriginalName();
+            $path = $docFile->storeAs('aspirasi', $fileName, 'public');
+
+            $existingFilePath = 'storage/aspirasi/' . $fileName;
+            if (Storage::exists($existingFilePath)) {
+                Storage::delete($existingFilePath);
+                // File berhasil dihapus
+            }
+
+            // Path file yang diunggah (dalam folder public)
+            $filePath = 'storage/' . $path;
+        }
 
         $data = [
             'judul_aspirasi' => $judulAspirasi,
             'isi_aspirasi' => $isiAspirasi,
             'status' => $status,
+            'doc_hasil_ppid' => $filePath
         ];
 
         DB::table('pengajuan_aspirasi')->where('id_pengajuan_aspirasi', $id)->update($data);

@@ -19,9 +19,12 @@
             </div>
             <div class="search--notification--profile">
                 <div class="search">
-                    <input type="text" placeholder="Cari Akun Pegawai">
-                    <button> <i class="ri-search-2-line"></i></button>
-                </div>
+                    <form action="{{ route('akun.index') }}" method="GET">
+                        
+                     
+                        <input type="text" name="query" placeholder="Cari Pengajuan" value="{{ $query }}" class="search-input"   <button type="submit" class="search-button"><i class="ri-search-2-line"></i></button>
+                    </form>
+                </div>
                 <div class="notification--profile">
                     <div class="picon bell">
                         <i class="ri-notification-2-line"></i>

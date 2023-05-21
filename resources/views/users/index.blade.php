@@ -6,10 +6,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-      </head>
         <title>Daftar Pegawai</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
@@ -24,7 +20,7 @@
             <div class="search--notification--profile">
                 <div class="search">
                     <form action="{{ route('users.index') }}" method="GET">
-                        <input type="text" name="query" placeholder="Cari Pegawai" value="{{ $query }}" class="search-input"<button type="submit" class="search-button"><i class="ri-search-2-line"></i></button>
+                        <input type="text" name="query" placeholder="Cari Pegawai" value="{{ $query }}" class="search-input"<button type="submit" class="search-button"<i class="ri-search-2-line"></i><i class="ri-search-2-line"></i></button>
                         
                     </form>
                 </div>
@@ -119,20 +115,21 @@
 
         </div>
 
-
-            <div class="main--content">
+   
+        <div class="main--content">
                 <div class="overview">
-    <h1>Daftar Pegawai</h1>
-
+                <div class="title">
+                   <h2 title="section--title">Daftar Pegawai </h2>
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
-    <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Tambah Akun</a>
-
-    <table class="table">
+    <a href="{{ route('users.create') }}" class="button1">Tambah Akun</a>
+                </div>
+    <div class="table">
+        <table>
         <thead>
             <tr>
                 <th>No</th>
@@ -143,7 +140,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($users as $index => $data)
+        @foreach($users as $index => $data)
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $data->email }}</td> 
@@ -151,14 +148,17 @@
                     <td>{{ $data->role }}</td>
                    
                     <td>
-                        <a href="{{ route('users.edit', $data->id) }}" class="btn btn-primary">Edit</a>
-                        <form action="{{ route('users.destroy', $data->id) }}" method="POST" class="d-inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')">Hapus</button>
-                        </form>
+                    <div class="button-container">
+        <a href="{{ 'users.edit', $data->id }}" class="ri-edit-line edit"></a>
+        <form action="{{ route('users.destroy', $data->id) }}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')"></button>
+        </form>
+    </div>
                     </td>
                 </tr>
+            </tr>
             @endforeach
         </tbody>
     </table>

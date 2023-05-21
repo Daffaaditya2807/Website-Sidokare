@@ -44,12 +44,17 @@
 
         <!-- Password -->
         <div class="inp">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Password')" placeholder="***********"/>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            {{-- <x-text-input 
+                            required autocomplete="current-password"  /> --}}
+                            
+            <input id="password" class="block mt-1 w-full"
+            type="password"
+            name="password" class="form-control @error('password') is-invalid @enderror"
+            required autocomplete="password" oninvalid="this.setCustomValidity('Harap mengisi password terlebih dahulu')" 
+            oninput="this.setCustomValidity('')"
+            placeholder="*************"/>
 
         </div>
 

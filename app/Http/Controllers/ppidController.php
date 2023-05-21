@@ -109,4 +109,8 @@ class ppidController extends Controller
             ->get();
         return view('formpengajuan', compact('ppid'));
     }
+    public function export($id){
+        $ppid = pengajuan_ppid::find($id);
+        return view('export-pdf', compact(['ppid']));
+    }
 }

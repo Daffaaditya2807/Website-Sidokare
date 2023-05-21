@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Daftar Pegawai</title>
-        <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard2.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
     <body>

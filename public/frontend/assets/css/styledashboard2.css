@@ -415,7 +415,7 @@ td,th{
 
 .edit{
     color: #70d7a5;
-    margin-right: 10px;
+    margin-right:-100px;
     border: none;
     height: 30px;
     width: 30px;
@@ -424,7 +424,7 @@ td,th{
 }
 .delete{
     color: #e86787;
-    margin-right: 10px;
+    margin-right:-100px;
     border: none;
     height: 30px;
     width: 30px;
@@ -450,7 +450,7 @@ td,th{
 }
 
 .button-container a {
-    margin-right: 10px; /* Jarak antara tombol edit dan hapus */
+    margin-right: -20px; /* Jarak antara tombol edit dan hapus */
 }
 .button1{
     border: none;

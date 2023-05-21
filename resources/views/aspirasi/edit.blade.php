@@ -133,7 +133,7 @@
                              </div>
                              <div class="column">
                                  <label for="tanggal_publikasi">Status</label>
-                                 <select class="form-control" id="id_kategori" name="status_aspirasi" required>
+                                 <select class="form-control" id="id_kategori" name="status_aspirasi">
                                     <option value="">{{ $aspirasi->status }}</option>
                                     <option value="Diproses">Diproses</option>
                                     <option value="Ditolak">Ditolak</option>

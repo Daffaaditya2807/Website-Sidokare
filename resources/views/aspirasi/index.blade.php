@@ -21,8 +21,8 @@
                 <button> <i class="ri-search-2-line"></i></button>
             </div>
             <div class="notification--profile">
-                <div class="picon bell">
-                    <i class="ri-notification-2-line"></i>
+                <!-- <div class="picon bell">
+                    <i class="ri-notification-2-line"></i> -->
                 </div>
                 <div class="picon profile">
                     <img src="{{ asset('frontend/assets/img/1.png') }}" alt="">

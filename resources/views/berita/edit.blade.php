@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>edit Berita</title>
+        <title>Edit Berita</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
      
@@ -44,19 +44,19 @@
                     </li>
                     <li>
                         <a href="/formpengajuan">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-bar-chart-grouped-line"></i></span>
                             <span class="sidebar--item">Pengajuan PPID</span>
                         </a>
                     </li>
                     <li>
                         <a href="/aspirasi">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-bar-chart-box-line"></i></span>
                             <span class="sidebar--item">Pengajuan Aspirasi</span>
                         </a>
                     </li>
                     <li>
                         <a href="/formpengajuan">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-file-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Keluhan</span>
                         </a>
                     </li>
@@ -66,16 +66,16 @@
                             <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="/profile">
                             <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Profil Pengguna</span>
                         </a>
-                    </li> 
+                    </li>  -->
         
                     <li>
                         <a href="/akun">
-                            <span class="icon icon-5"><i class="ri-user-2-line"></i></span>
+                            <span class="icon icon-5"><i class="ri-folder-user-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Daftar Akun</span>
                         </a>
                     </li> 
@@ -87,7 +87,7 @@
                         @if(auth()->user()->role === 'Admin')
                             <li>
                                 <a href="/users">
-                                    <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
+                                    <span class="icon icon-4"><i class="ri-database-line"></i></span>
                                     <span class="sidebar--item" style="white-space: nowrap;">Daftar Pegawai</span>
                                 </a>
                             </li>

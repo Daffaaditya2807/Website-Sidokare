@@ -44,8 +44,8 @@
                 <button> <i class="ri-search-2-line"></i></button> -->
             </div>
             <div class="notification--profile">
-                <div class="picon bell">
-                    <i class="ri-notification-2-line"></i>
+                <!-- <div class="picon bell">
+                    <i class="ri-notification-2-line"></i> -->
                 </div>
                 <div class="picon profile">
                     <img src="{{ asset('frontend/assets/img/1.png') }}" alt="">
@@ -58,26 +58,26 @@
             <div class="sidebar">
                 <ul class="sidebar--items">  
                     <li>
-                        <a href="/dashboard" >
-                            <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
-                            <span class="sidebar--item">Dashboard</span>
+                        <a href="/dashboard" id="active--link" >
+                            <span class="icon icon-1" ><i class="ri-layout-grid-line"></i></span>
+                            <span class="sidebar--item" >Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="/formpengajuan">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-bar-chart-grouped-line"></i></span>
                             <span class="sidebar--item">Pengajuan PPID</span>
                         </a>
                     </li>
                     <li>
                         <a href="/aspirasi">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-bar-chart-box-line"></i></span>
                             <span class="sidebar--item">Pengajuan Aspirasi</span>
                         </a>
                     </li>
                     <li>
                         <a href="/formpengajuan">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-file-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Keluhan</span>
                         </a>
                     </li>
@@ -87,16 +87,16 @@
                             <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="/profile">
                             <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Profil Pengguna</span>
                         </a>
-                    </li> 
+                    </li>  -->
         
                     <li>
                         <a href="/akun">
-                            <span class="icon icon-5"><i class="ri-user-2-line"></i></span>
+                            <span class="icon icon-5"><i class="ri-folder-user-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Daftar Akun</span>
                         </a>
                     </li> 
@@ -107,8 +107,8 @@
                         <!-- Pengguna adalah role admin -->
                         @if(auth()->user()->role === 'Admin')
                             <li>
-                                <a href="/users"id="active--link">
-                                    <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
+                                <a href="/users">
+                                    <span class="icon icon-4"><i class="ri-database-line"></i></span>
                                     <span class="sidebar--item" style="white-space: nowrap;">Daftar Pegawai</span>
                                 </a>
                             </li>

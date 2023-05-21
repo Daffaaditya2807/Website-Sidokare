@@ -5,11 +5,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
       </head>
         <title>Daftar Pegawai</title>
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
@@ -101,42 +99,51 @@
                 </ul>
     
             </div>
-        
             <div class="main--content">
                 <div class="overview">
-
-    <h1>Tambah Pegawai Baru</h1>
-
+                <div class="title">
+                   <!-- <h2 title="section--title">Formulir Pengajuan </h2> -->
+                   <div class="container">
+                    <header>Daftar Akun Pegawai</header>
+               
+            
     <form action="{{ route('users.store') }}" method="POST">
         @csrf
-
-        <div class="form-group">
-            <label for="email">Email</label>
+            
+                        <form>
+                         <div class="row">
+                             <div class="column">
+                             <label for="email">Email</label>
             <input type="email" name="email" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
+                             </div>
+                             <div class="column">
+                             <label for="password">Password</label>
             <input type="password" name="password" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="name">Nama</label>
-            <input type="text" name="name" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="role">Role</label>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <label for="role">Role</label>
             <select class="form-control" id="role" name="role" required>
-                <option value="">Pilih peran</option>
                 <option value="Admin">Admin</option>
                 <option value="Pegawai">Pegawai</option>
             </select>
-        </div>
+                                 
+                             </div>
+                             <div class="column">
+                             <label for="name">Nama</label>
+            <input type="text" name="name" class="form-control" required>
+                             </div>
+                         </div>
+                         <button type="submit" class="btn btn-primary">Simpan</button>
+                        @if(session('message'))
+                        <div class="custom-alert custom-alert-{{ session('type') }}">
+                            <span class="custom-alert-message">{{ session('message') }}</span>
+                        </div>
+@endif
 
-        <button type="submit" class="btn btn-primary">Simpan</button>
-    </form>
-
+                     </form>
+       
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>

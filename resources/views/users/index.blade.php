@@ -148,13 +148,15 @@
                     <td>{{ $data->role }}</td>
                    
                     <td>
+                        <div>
                     <div class="button-container">
-        <a href="{{ 'users.edit', $data->id }}" class="ri-edit-line edit"></a>
+                    <a href="{{ route('users.edit', $data->id) }}" class="ri-edit-line edit"></a>
         <form action="{{ route('users.destroy', $data->id) }}" method="POST" class="d-inline">
             @csrf
             @method('DELETE')
             <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')"></button>
         </form>
+    </div>
     </div>
                     </td>
                 </tr>

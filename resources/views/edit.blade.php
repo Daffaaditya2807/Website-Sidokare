@@ -93,9 +93,6 @@
                             <label for="tanggal_publikasi">Nama</label>
                             <input type="text" class="form-control" id="nama_pelapor" name="nama_pelapor" value="{{ $ppid->nama_pelapor }}" required>
                         </div>
-                
-                        
-                
                         <div class="form-group">
                             <label for="isi_berita">No Telfon</label>
                             <input type="number" class="form-control" id="no_telfon" name="no_telfon" value="{{ $ppid->no_telfon  }}" required>
@@ -147,7 +144,7 @@
 
                <div class="form-group">
                             <label for="isi_berita">Upload Hasil PPID</label>
-                            <input type="file" class="form-control" id="doc_hasil_ppid" value="{{ $ppid->doc_hasil_ppid }}" >
+                            <input type="file" class="form-control" id="doc_hasil_ppid" name="doc_hasil_ppid" >
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\EmailController;
-
+use App\Http\Controllers\keluhanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
@@ -34,31 +34,28 @@ Route::post('/forgot-password', function (Request $request) {
         $request->only('email')
     );
     return $status === Password::RESET_LINK_SENT
-    ? back()->with(['status' => __($status)])
-    : back()->withErrors(['email' => __($status)]);
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
 })->middleware('guest')->name('password.email');
 
 Route::get('/reset-password/{token}', function ($token) {
     return view('auth.reset-password', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
-Route::get('/formpengajuan', function ()
-{
+Route::get('/formpengajuan', function () {
     return view('formpengajuan');
 });
-Route::get('/berita', function ()
-{
+Route::get('/berita', function () {
     return view('berita');
 });
-Route::get('/formpengajuan',[ppidController::class, 'index'])->name('formpengajuan.index');
-Route::get('formpengajuan/create',[ppidController::class, 'create'])->name('formpengajuan.create');
-Route::post('/ppid/store',[ppidController::class, 'store']);
-Route::get('/ppid/{id}/edit', [ppidController::class,'edit']);
-Route::get('/ppid/{id}/revisi', [ppidController::class,'revisi']);
-Route::put('/ppid/{id}', [ppidController::class,'update'])->name('ppid.update');
-Route::get('/ppid/{id}/export', [ppidController::class,'export'])->name('ppid.export');
-Route::delete('/formpengajuan/{id}', [ppidController::class,'destroy'])->name('ppid.destroy');
-Route::get('/formpengajuan/search', [ppidController::class,'search']);
-Route::get('/formpengajuan/filter', [ppidController::class,'filter']);
+Route::get('/formpengajuan', [ppidController::class, 'index'])->name('formpengajuan.index');
+Route::post('/ppid/store', [ppidController::class, 'store']);
+Route::get('/ppid/{id}/edit', [ppidController::class, 'edit']);
+Route::get('/ppid/{id}/revisi', [ppidController::class, 'revisi']);
+Route::put('/ppid/{id}', [ppidController::class, 'update'])->name('ppid.update');
+Route::get('/ppid/{id}/export', [ppidController::class, 'export'])->name('ppid.export');
+Route::delete('/formpengajuan/{id}', [ppidController::class, 'destroy'])->name('ppid.destroy');
+Route::get('/formpengajuan/search', [ppidController::class, 'search']);
+Route::get('/formpengajuan/filter', [ppidController::class, 'filter']);
 
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
@@ -68,6 +65,11 @@ Route::get('/berita/{berita}/edit', [BeritaController::class, 'edit'])->name('be
 Route::put('/berita/{berita}', [BeritaController::class, 'update'])->name('berita.update');
 Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 
-Route::resource('users', AkunController::class); 
+Route::resource('users', AkunController::class);
 
-Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
+Route::post('/kirim-email', [EmailController::class, 'kirimEmail']);
+
+//keluhan
+Route::get('/keluhan', [keluhanController::class, 'keluhan'])->name('keluhan.index');
+Route::get('/keluhan/{id}/edit', [keluhanController::class, 'edit']);
+Route::put('/keluhan/{id}', [keluhanController::class, 'update'])->name('keluhan.update');

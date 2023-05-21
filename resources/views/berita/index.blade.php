@@ -17,15 +17,15 @@
             </div>
             <div class="search--notification--profile">
             <div class="search">
+                
                     <form action="{{ route('berita.index') }}" method="GET">
                         
-                     
-                        <input type="text" name="query" placeholder="Cari Pengajuan" value="{{ $query }}" class="search-input"   <button type="submit" class="search-button"><i class="ri-search-2-line"></i></button>
+                        <input type="text" name="query" placeholder="Cari Berita" value="{{ $query }}" class="search-input"   <button type="submit" class="search-button"><i class="ri-search-2-line"></i></button>
                     </form>
                 </div>
                 <div class="notification--profile">
-                    <div class="picon bell">
-                        <i class="ri-notification-2-line"></i>
+                    <!-- <div class="picon bell">
+                        <i class="ri-notification-2-line"></i> -->
                     </div>
                     <div class="picon profile">
                         <img src="{{ asset('img/1.png') }}" alt="">

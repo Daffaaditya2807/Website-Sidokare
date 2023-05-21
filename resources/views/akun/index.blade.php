@@ -26,8 +26,8 @@
                     </form>
                 </div>
                 <div class="notification--profile">
-                    <div class="picon bell">
-                        <i class="ri-notification-2-line"></i>
+                    <!-- <div class="picon bell">
+                        <i class="ri-notification-2-line"></i> -->
                     </div>
                     <div class="picon profile">
                         <img src="{{ asset('img/1.png') }}" alt="">

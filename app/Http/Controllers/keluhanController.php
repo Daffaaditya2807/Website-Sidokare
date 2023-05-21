@@ -36,13 +36,13 @@ class keluhanController extends Controller
                 $file->move(public_path('doc_hasil_keluhan'), $fileName);
 
                 // Mengupdate kolom 'doc_hasil_ppid' dengan nama file yang diunggah
-                $ppid->doc_hasil_ppid = $fileName;
+                $ppid->doc_hasil_keluhan = $fileName;
                 $ppid->save();
             }
 
-            return redirect('/formpengajuan')->with('success', 'Berita berhasil diperbarui.');
+            return redirect('/keluhan')->with('success', 'Berita berhasil diperbarui.');
         }
 
-        return redirect('/formpengajuan')->with('error', 'Berita tidak ditemukan.');
+        return redirect('/keluhan')->with('error', 'Berita tidak ditemukan.');
     }
 }

@@ -12,4 +12,11 @@ class Akun extends Model
     protected $primaryKey = 'id_akun';
 protected $fillable = ['id_akun','email', 'password', 'role', 'nama', 'nomor_telepon'];
 
+
+public static function search($query)
+    {
+        return self::where('email', 'like', '%'.$query.'%')
+            ->orWhere('nama', 'like', '%'.$query.'%')
+            ->get();
+    }
 }

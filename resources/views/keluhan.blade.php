@@ -157,10 +157,8 @@
                                     <td>{{ $w->status }}</td>
                                     <td>{{ $w->kategori_laporan }}</td>
                                     @if ($w->status== "Revisi1")
-                                        <td><span><a class="rejected" href="/ppid/{{ $w->id }}/revisi">keberatan</a></span></td> @endif 
-                                  
-                                    <td><span><a  class="ri-edit-line edit" href="/keluhan/{{ $w->id }}/edit">Detail</a></span>
-                                    <td><span><a  class="ri-edit-line edit" href="/keluhan/{{ $w->id }}/export"  target="_blank">Export</a></span>
+                                        <td><span><a class="rejected" href="/ppid/{{ $w->id }}/revisi">keberatan</a></span> @endif 
+                                  <span><a  class="ri-edit-line edit" href="/keluhan/{{ $w->id }}/edit">Detail</a></span>
                                         <span>
                                             <button class="ri-delete-bin-line delete" data-bs-toggle="modal" data-bs-target="#exampleModal" ></button>
                                             <!-- Button trigger modal --></button>
@@ -189,6 +187,7 @@
         </div>
     </div>
 </div>
+</td>
 
 @php
     $ppidId = $w->id; // Simpan nilai ID dalam variabel $ppidId

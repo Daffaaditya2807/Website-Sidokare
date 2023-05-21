@@ -151,6 +151,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
+                    <span><a  class="ri-edit-line edit" href="/keluhan/{{ $ppid->id }}/export"  target="_blank">Export</a></span>
                 </div>
             
                 </div>

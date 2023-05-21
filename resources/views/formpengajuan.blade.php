@@ -3,7 +3,6 @@
     <html lang="en">
 
     <head>
-<<<<<<< Updated upstream
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,6 @@
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 
-=======
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +18,6 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
   
         
->>>>>>> Stashed changes
     </head>
 
     <body>
@@ -212,10 +209,10 @@
                                                                         $ppidId = $w->id; // Simpan nilai ID dalam variabel $ppidId
                                                                     @endphp
                                                                     <button type="submit"
-                                                                        class="btn btn-danger">Delete</button>
+                                                                        class="btn btn-danger">Hapus</button>
                                                                 </form>
                                                                 <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
+                                                                    data-bs-dismiss="modal">Batal</button>
                                                             </div>
                                                         </div>
                                                     </div>

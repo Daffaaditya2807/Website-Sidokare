@@ -138,11 +138,11 @@
                             <input type="number" class="form-control" id="no_telfon" name="no_telfon" value="{{ $ppid->no_telfon  }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="isi_berita">Judul Laporan</label>
+                            <label for="isi_berita">Judul Pengajuan</label>
                             <textarea class="form-control" id="judul_laporan" name="judul_laporan" required>{{ $ppid->judul_laporan }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="isi_berita">Isi Berita</label>
+                            <label for="isi_berita">Isi Pengajuan</label>
                             <textarea class="form-control" id="isi_laporan" name="isi_laporan" required>{{ $ppid->isi_laporan }}</textarea>
                         </div>
                         <div class="form-group">
@@ -158,7 +158,7 @@
                             <input type="number" class="form-control" id="RW" value="{{ $ppid->RW }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="status">Status</label>
+                            <label for="status">Status Pengajuan</label>
                             <select class="form-control" id="status" name="status" required>
                                 <option value="diterima" @if ($ppid->status== "diterima")selected @endif>Diterima</option>
                                 <option value="diproses" @if ($ppid->status== "diproses")selected @endif>Diproses</option>
@@ -186,7 +186,7 @@
                             <label for="isi_berita">Upload Hasil PPID</label>
                             <input type="file" class="form-control" id="doc_hasil_ppid" name="doc_hasil_ppid" >
                         </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                     </form>
                 </div>
             

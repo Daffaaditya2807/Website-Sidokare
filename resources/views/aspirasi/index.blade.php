@@ -141,10 +141,10 @@
                         <td>{{ $aspirasi->status }}</td>
                         <td>
                         <div class="button-container">
-                            @if($aspirasi->status == 'Revisi 1')
+                            @if($aspirasi->status == 'Revisi')
                             <a href="{{ route('aspirasi.edit', $aspirasi->id_pengajuan_aspirasi) }}" class="ri-edit-line edit"></a>
                             @endif
-                            @if ($aspirasi->status == 'Revisi 2')
+                            @if ($aspirasi->status == 'Direvisi')
                             <a href="{{ route('aspirasi.edit', $aspirasi->id_pengajuan_aspirasi) }}" class="ri-edit-line edit"></a>
                             @endif
                             <a href="{{ route('aspirasi.edit', $aspirasi->id_pengajuan_aspirasi) }}" class="ri-edit-line edit"></a>

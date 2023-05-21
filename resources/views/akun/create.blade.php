@@ -1,15 +1,12 @@
 <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-      </head>
         <title>Pengajuan</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
     <body>
@@ -20,9 +17,9 @@
                 <h2>E- <span>Sidokare</span></h2>
             </div>
             <div class="search--notification--profile">
-                <div class="search">
-                    <input type="text" placeholder="Cari Pengajuan">
-                    <button> <i class="ri-search-2-line"></i></button>
+                <div class="">
+                    <!-- <input type="text" placeholder="Cari Pengajuan">
+                    <button> <i class="ri-search-2-line"></i></button> -->
                 </div>
                 <div class="notification--profile">
                     <div class="picon bell">
@@ -113,13 +110,78 @@
     
             </div>
             
-
             <div class="main--content">
                 <div class="overview">
+                <div class="title">
+                   <!-- <h2 title="section--title">Formulir Pengajuan </h2> -->
+                   <div class="container">
+                    <header>Tambah Akun Pegawai</header>
+               
+            
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+            
+                    <form action="{{ route('akun.store') }}" method="POST">
+        @csrf
+                        <form>
+                         <div class="row">
+                             <div class="column">
+                             <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" required placeholder="a@gmail.com">
+                             </div>
+                             <div class="column">
+                             <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" required>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <label for="nik">NIK</label>
+            <input type="text" name="nik" class="form-control" required>
+                                 
+                             </div>
+                             <div class="column">
+                             <label for="nomor_telepon">Nomor Telepon</label>
+            <input type="text" name="nomor_telepon" class="form-control" >
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <label for="nama">Nama</label>
+            <input type="text" name="nama" class="form-control" required>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <label for="role">User</label>
+                             <select class="form-control" id="role" name="role" required>
+                                <option value="User">User</option>
+                            </select>
+                         </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <input type="hidden" name="status_verif" value="1">
+        <input type="hidden" name="status_verif" value="{{ rand(10000, 99999) }}">
+        <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                      
+                         </div>
+                     </form>
+            <!-- <div class="main--content">
+                <div class="overview">
+                <div class="title">
+                   <h2 title="section--title">Tambah Akun Baru </h2> -->
+<!-- 
+    <h1>Tambah Akun Baru</h1> -->
 
-    <h1>Tambah Akun Baru</h1>
-
-    <form action="{{ route('akun.store') }}" method="POST">
+    <!-- <form action="{{ route('akun.store') }}" method="POST">
         @csrf
 
         <div class="form-group">
@@ -155,9 +217,9 @@
         </div>
         <input type="hidden" name="status_verif" value="1">
         <input type="hidden" name="status_verif" value="{{ rand(10000, 99999) }}"> <!-- Generate random OTP (5 digit) -->
+<!-- 
+      > 
 
-        <button type="submit" class="btn btn-primary">Simpan</button>
-    </form>
 
 </div>
 </div>

@@ -6,11 +6,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-      </head>
-        <title>Pengajuan</title>
+        <title>Daftar Pegawai</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
@@ -23,7 +19,7 @@
             </div>
             <div class="search--notification--profile">
                 <div class="search">
-                    <input type="text" placeholder="Cari Pengajuan">
+                    <input type="text" placeholder="Cari Akun Pegawai">
                     <button> <i class="ri-search-2-line"></i></button>
                 </div>
                 <div class="notification--profile">
@@ -118,15 +114,19 @@
 
             <div class="main--content">
                 <div class="overview">
-    <h1>Daftar Akun</h1>
+                <div class="title">
+                   <h2 title="section--title">Tambah Akun Baru</h2>
 
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
-
-    <a href="{{ route('akun.create') }}" class="btn btn-primary mb-3">Tambah Akun</a>
+    <a href="{{ route('akun.create') }}" class="button1">Tambah Akun</a>
+                </div>
+  
+<!-- 
+    <a href="{{ route('akun.create') }}" class="btn btn-primary mb-3">Tambah Akun</a> -->
 
     <table class="table">
         <thead>
@@ -148,12 +148,20 @@
                     <td>{{ $data->nama }}</td>
                     <td>{{ $data->nomor_telepon }}</td>
                     <td>
-                        <a href="{{ route('akun.edit', $data->id_akun) }}" class="btn btn-primary">Edit</a>
+                    <div class="button-container">
+                    <a href="{{ route('akun.edit', $data->id_akun) }}" class="ri-edit-line edit"></a>
                         <form action="{{ route('akun.destroy', $data->id_akun) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')">Hapus</button>
-                        </form>
+                            <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')"></button>
+                        </form> 
+    </div>
+                        <!-- <a href="{{ route('akun.edit', $data->id_akun) }}" class="ri-edit-line edit"></a>
+                        <form action="{{ route('akun.destroy', $data->id_akun) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')"></button>
+                        </form> -->
                     </td>
                 </tr>
             @endforeach

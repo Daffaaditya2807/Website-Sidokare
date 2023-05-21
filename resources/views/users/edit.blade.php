@@ -8,11 +8,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
       </head>
         <title>Edit Akun</title>
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
@@ -108,41 +106,52 @@
             </ul>
 
         </div>
-
-            <div class="main--content">
+        <div class="main--content">
                 <div class="overview">
-
-    <h1>Edit Akun</h1>
-
-    <form action="{{ route('users.update', $users->id) }}" method="POST">
+                <div class="title">
+                   <!-- <h2 title="section--title">Formulir Pengajuan </h2> -->
+                   <div class="container">
+                    <header>Edit Akun Pegawai</header>
+               
+            
+                    <form action="{{ route('users.update', $users->id) }}" method="POST">
         @csrf
         @method('PUT')
-
-        <div class="form-group">
-            <label for="email">Email</label>
+            
+                        <form>
+                         <div class="row">
+                             <div class="column">
+                             <label for="email">Email</label>
             <input type="email" name="email" class="form-control" value="{{ $users->email }}" required>
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
+                             </div>
+                             <div class="column">
+                             <label for="password">Password</label>
             <input type="password" name="password" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="name">Nama</label>
-            <input type="text" name="name" class="form-control" value="{{ $users->name }}" required>
-        </div>
-        <div class="form-group">
-            <label for="role">Role:</label>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <label for="role">Role:</label>
             <select class="form-control" id="role" name="role" required>
                 <option value="Admin" {{ $users->role == 'Admin' ? 'selected' : '' }}>Admin</option>
                 <option value="Pegawai" {{ $users->role == 'Pegawai' ? 'selected' : '' }}>Pegawai</option>
             </select>
+            </select>
+                                 
+                             </div>
+                             
+                             <div class="column">
+                             <label for="name">Nama</label>
+            <input type="text" name="name" class="form-control" value="{{ $users->name }}" required>       
+            </div>   
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
-    </form>
+                        
+                     </form>
+       
 </div>
 </div>
+            
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
 <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>

@@ -132,7 +132,14 @@
                              </div>
                              <div class="column">
                                  <label for="tanggal_publikasi">Status</label>
-                                 <input type="text" class="form-control" id="status_aspirasi" name="status_aspirasi" value="{{ $aspirasi->status }}" required>
+                                 <select class="form-control" id="id_kategori" name="status_aspirasi" required>
+                                    <option value="">{{ $aspirasi->status }}</option>
+                                    <option value="Diproses">Diproses</option>
+                                    <option value="Ditolak">Ditolak</option>
+                                    <option value="Revisi">Revisi</option>
+                                    <option value="Direvisi">Direvisi</option>
+                                    <option value="Selesai">Selesai</option>
+                                </select>
                              </div>
                          </div>
 
@@ -149,10 +156,7 @@
                                 @endif
                                 <input type="file" id="foto" name="foto" style="display: none;">
                         </div>
-                        <br>
-                            <input type="text" name="foto" id="foto" disabled class="form-control mt-2" value="{{ $aspirasi->upload_file_pendukung }}">
-                        <br>
-                        <input type="file" name="dokumen">
+                        <input type="file" name="doc_file">
                          <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </div>      

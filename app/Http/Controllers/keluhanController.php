@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\pengajuan_keluhan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Database\QueryException;
 class keluhanController extends Controller
 {
     //
@@ -72,5 +72,23 @@ class keluhanController extends Controller
             ->whereDate('tanggal_kejadian', '<=', $end_date)
             ->get();
         return view('keluhan', compact('ppid'));
+    }
+    public function destroy($id)
+    {
+        try {
+            $ppid = pengajuan_keluhan::find($id);
+            $ppid->delete();
+
+            // Redirect pengguna ke tampilan sebelumnya dengan pesan sukses
+            return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        } catch (QueryException $e) {
+            if ($e->getCode() == 1451) {
+                // Redirect pengguna ke tampilan sebelumnya dengan pesan error pada target ID
+                return redirect()->back()->withErrors(['error' => 'Tidak dapat menghapus data karena adanya keterkaitan dengan data lain.'])->withInput(['target_id' => $id]);
+            } else {
+                // Redirect pengguna ke tampilan sebelumnya dengan pesan error umum
+                return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat menghapus data.'])->withInput(['target_id' => $id]);
+            }
+        }
     }
 }

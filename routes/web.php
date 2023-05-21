@@ -78,6 +78,7 @@ Route::put('/keluhan/{id}', [keluhanController::class, 'update'])->name('keluhan
 Route::get('/keluhan/{id}/export', [keluhanController::class, 'export'])->name('keluhan.export');
 Route::get('/keluhan/search', [keluhanController::class, 'search']);
 Route::get('/keluhan/filter', [keluhanController::class, 'filter']);
+Route::delete('/keluhan/{id}', [keluhanController::class, 'destroy'])->name('keluhan.destroy');
 Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
 
 Route::resource('akun', AkunsController::class);

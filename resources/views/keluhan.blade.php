@@ -176,7 +176,7 @@
                 Apakah Anda yakin ingin menghapus data?
             </div>
             <div class="modal-footer">
-                <form action="{{ route('ppid.destroy', $w->id) }}" method="POST" class="d-inline">
+                <form action="{{ route('keluhan.destroy', $w->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
                     @php

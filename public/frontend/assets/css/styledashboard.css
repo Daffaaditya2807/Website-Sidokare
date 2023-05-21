@@ -49,7 +49,7 @@ body{
 .search{
     background-color: #f1f4f8;
     border-radius: 50px;
-    width: 400px;
+    width: 210px;
     padding: 5px;
     display: flex;
     align-items: center;
@@ -215,6 +215,30 @@ a{
     font-weight: 400;
 
 }
+
+  .form-control {
+    margin-bottom: 50px;
+  }
+
+  .btn {
+    margin-bottom: 50px;
+  }
+
+  .custom-alert {
+    padding: 100px;
+    border-radius: 50px;
+}
+
+.custom-alert-success {
+    background-color: #00cc00;
+    color: #ffffff;
+}
+
+.custom-alert-message {
+    font-weight: bold;
+}
+
+
 .cards{
     display: flex;
     gap: 20px;
@@ -373,6 +397,7 @@ tr{
 }
 td,th{
     padding-block: 10px;
+   
 }
 .add{
     display: flex;
@@ -419,7 +444,22 @@ td,th{
 .rejected{
     color: #e86786;
 }
+.button-container {
+    display: flex;
+    align-items: center;
+}
 
+.button-container a {
+    margin-right: 10px; /* Jarak antara tombol edit dan hapus */
+}
+.button1{
+    border: none;
+    padding: 10px 20px;
+    background: #1877F2;
+    color: #ffffff;
+    border-radius: 3px;
+  }
+  
 @media screen and (max-width:1350px){
     .cards{
         overflow-x:scroll ;

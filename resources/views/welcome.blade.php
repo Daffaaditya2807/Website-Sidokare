@@ -181,19 +181,16 @@
             <div class="row">
               <div class="owl-carousel screenshots-carousel">
                 <div class="screenshot-item">
-                  <img src="{{ asset('frontend/assets/img/1.png') }}" alt="screenshot">
+                  <img src="{{ asset('frontend/assets/img/3b.png') }}" alt="screenshot">
                 </div>
                 <div class="screenshot-item">
-                  <img src="{{ asset('frontend/assets/img/1.png') }}" alt="screenshot">
+                  <img src="{{ asset('frontend/assets/img/1a.png') }}" alt="screenshot">
                 </div>
                 <div class="screenshot-item">
-                  <img src="{{ asset('frontend/assets/img/1.png') }}" alt="screenshot">
+                  <img src="{{ asset('frontend/assets/img/2b.png') }}" alt="screenshot">
                 </div>
                 <div class="screenshot-item">
-                  <img src="{{ asset('frontend/assets/img/1.png') }}" alt="screenshot">
-                </div>
-                <div class="screenshot-item">
-                  <img src="{{ asset('frontend/assets/img/1.png') }}" alt="screenshot">
+                  <img src="{{ asset('frontend/assets/img/4b.png') }}" alt="screenshot">
                 </div>
               </div>
             </div>
@@ -326,7 +323,7 @@
                         <div class="text-one">desasidokare.go.id</div>
                       </div>
                     </div>
-                    <div class="right-side">
+                    <div class="right-side">  
                       <div class="topic-text">Kirim Pesan</div>
                       <p>Anda dapat mengirimi saya pesan dari sini. Ini kesenangan saya untuk membantu Anda.</p>
                       <form method="POST" action="/kirim-email">
@@ -343,8 +340,8 @@
                             <textarea name="isi" id="isi" placeholder="Masukkan Komentarmu" required></textarea>
                             </div>
 
-                            <div class="button">
-                            <button type="submit">Kirim Sekarang</button>
+                            <div>
+                            <button type="submit" class="button">Kirim Sekarang</button>
                             </div>
                     </form>
                   </div>

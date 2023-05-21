@@ -10,6 +10,8 @@ use App\Http\Controllers\AkunController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\keluhanController;
+use App\Http\Controllers\AkunsController;
+use App\Http\Controllers\aspirasiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -73,3 +75,13 @@ Route::post('/kirim-email', [EmailController::class, 'kirimEmail']);
 Route::get('/keluhan', [keluhanController::class, 'keluhan'])->name('keluhan.index');
 Route::get('/keluhan/{id}/edit', [keluhanController::class, 'edit']);
 Route::put('/keluhan/{id}', [keluhanController::class, 'update'])->name('keluhan.update');
+Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
+
+Route::resource('akun', AkunsController::class);
+
+Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');
+Route::get('/aspirasi/create', [AspirasiController::class, 'create'])->name('aspirasi.create');
+Route::post('/aspirasi', [AspirasiController::class, 'store'])->name('aspirasi.store');
+Route::get('/aspirasi/{id}/edit', [AspirasiController::class, 'edit'])->name('aspirasi.edit');
+Route::put('/aspirasi/{id}', [AspirasiController::class, 'update'])->name('aspirasi.update');
+Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy'])->name('aspirasi.destroy');

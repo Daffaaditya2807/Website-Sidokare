@@ -1,3 +1,4 @@
+<!-- resources/views/akun/index.blade.php -->
 
 <!DOCTYPE html>
     <html lang="en">
@@ -9,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
       </head>
-        <title>Daftar Pegawai</title>
+        <title>Pengajuan</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
@@ -20,8 +21,20 @@
                 <i class="ri-menu-line icon icon-0 menu"></i>
                 <h2>E- <span>Sidokare</span></h2>
             </div>
-
-     
+            <div class="search--notification--profile">
+                <div class="search">
+                    <input type="text" placeholder="Cari Pengajuan">
+                    <button> <i class="ri-search-2-line"></i></button>
+                </div>
+                <div class="notification--profile">
+                    <div class="picon bell">
+                        <i class="ri-notification-2-line"></i>
+                    </div>
+                    <div class="picon profile">
+                        <img src="{{ asset('img/1.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
     
         </section>
         <section class="main">
@@ -65,7 +78,7 @@
                     </li> 
         
                     <li>
-                        <a href="/akun">
+                        <a href="/akun"id="active--link">
                             <span class="icon icon-5"><i class="ri-user-2-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Daftar Akun</span>
                         </a>
@@ -77,7 +90,7 @@
                         <!-- Pengguna adalah role admin -->
                         @if(auth()->user()->role === 'Admin')
                             <li>
-                                <a href="/users"id="active--link">
+                                <a href="/users">
                                     <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
                                     <span class="sidebar--item" style="white-space: nowrap;">Daftar Pegawai</span>
                                 </a>
@@ -101,41 +114,51 @@
                 </ul>
     
             </div>
-        
+       
+
             <div class="main--content">
                 <div class="overview">
+    <h1>Daftar Akun</h1>
 
-    <h1>Tambah Pegawai Baru</h1>
-
-    <form action="{{ route('users.store') }}" method="POST">
-        @csrf
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" required>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
+    @endif
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" required>
-        </div>
+    <a href="{{ route('akun.create') }}" class="btn btn-primary mb-3">Tambah Akun</a>
 
-        <div class="form-group">
-            <label for="name">Nama</label>
-            <input type="text" name="name" class="form-control" required>
-        </div>
-
-        <div class="form-group">
-            <label for="role">Role</label>
-            <select class="form-control" id="role" name="role" required>
-                <option value="">Pilih peran</option>
-                <option value="Admin">Admin</option>
-                <option value="Pegawai">Pegawai</option>
-            </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Simpan</button>
-    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Nama</th>
+                <th>Nomor Telepon</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($akun as $index => $data)
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $data->email }}</td>
+                    <td>{{ $data->role }}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->nomor_telepon }}</td>
+                    <td>
+                        <a href="{{ route('akun.edit', $data->id_akun) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('akun.destroy', $data->id_akun) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus akun ini?')">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 </div>
 </div>
@@ -144,3 +167,4 @@
 <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
 </body>
 </html>
+

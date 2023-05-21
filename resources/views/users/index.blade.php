@@ -23,9 +23,12 @@
             </div>
             <div class="search--notification--profile">
                 <div class="search">
-                    <input type="text" placeholder="Cari Pengajuan">
-                    <button> <i class="ri-search-2-line"></i></button>
+                    <form action="{{ route('users.index') }}" method="GET">
+                        <input type="text" name="query" placeholder="Cari Pegawai" value="{{ $query }}" class="search-input"<button type="submit" class="search-button"><i class="ri-search-2-line"></i></button>
+                        
+                    </form>
                 </div>
+                
                 <div class="notification--profile">
                     <div class="picon bell">
                         <i class="ri-notification-2-line"></i>
@@ -37,49 +40,89 @@
             </div>
     
         </section>
-         <section class="main">
+        <section class="main">
             <div class="sidebar">
                 <ul class="sidebar--items">  
                     <li>
-                        <a href="{{ url('') }}" >
+                        <a href="/dashboard" >
                             <span class="icon icon-1"><i class="ri-layout-grid-line"></i></span>
                             <span class="sidebar--item">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('') }}">
+                        <a href="/formpengajuan">
                             <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
-                            <span class="sidebar--item">Pengajuan</span>
+                            <span class="sidebar--item">Pengajuan PPID</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('') }}">
+                        <a href="/aspirasi">
+                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="sidebar--item">Pengajuan Aspirasi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/formpengajuan">
+                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="sidebar--item">Pengajuan Keluhan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/berita">
                             <span class="icon icon-3"><i class="ri-customer-service-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Upload Berita</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('') }}"id="active--link">
+                        <a href="/profile">
                             <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
                             <span class="sidebar--item" style="white-space: nowrap;">Profil Pengguna</span>
                         </a>
                     </li> 
-    
-                </ul>
-                <ul class="sidebar--bottom-items">
+        
                     <li>
-                        <a href="{{ url('') }}">
-                            <span class="icon icon-5"><i class="ri-logout-box-r-line"></i></span>
-                            <span class="sidebar--item">Logout</span>
+                        <a href="/akun">
+                            <span class="icon icon-5"><i class="ri-user-2-line"></i></span>
+                            <span class="sidebar--item" style="white-space: nowrap;">Daftar Akun</span>
                         </a>
                     </li> 
+        
+                    @guest
+                        <!-- Pengguna adalah role pegawai -->
+                    @else
+                        <!-- Pengguna adalah role admin -->
+                        @if(auth()->user()->role === 'Admin')
+                            <li>
+                                <a href="/users"id="active--link">
+                                    <span class="icon icon-4"><i class="ri-user-2-line"></i></span>
+                                    <span class="sidebar--item" style="white-space: nowrap;">Daftar Pegawai</span>
+                                </a>
+                            </li>
+                        @endif
+                    @endguest
+        
                 </ul>
+              
+            <ul class="sidebar--bottom-items">
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
     
-            </div>
+                        <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-responsive-nav-link>
+                    </form>
+                </li> 
+            </ul>
+
+        </div>
+
 
             <div class="main--content">
                 <div class="overview">
-    <h1>Daftar Akun</h1>
+    <h1>Daftar Pegawai</h1>
 
     @if(session('success'))
         <div class="alert alert-success">
@@ -95,7 +138,7 @@
                 <th>No</th>
                 <th>Email</th>
                 <th>Nama</th>
-                
+                <th>Role</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -103,8 +146,9 @@
             @foreach($users as $index => $data)
                 <tr>
                     <td>{{ $index + 1 }}</td>
-                    <td>{{ $data->email }}</td>
+                    <td>{{ $data->email }}</td> 
                     <td>{{ $data->name }}</td>
+                    <td>{{ $data->role }}</td>
                    
                     <td>
                         <a href="{{ route('users.edit', $data->id) }}" class="btn btn-primary">Edit</a>

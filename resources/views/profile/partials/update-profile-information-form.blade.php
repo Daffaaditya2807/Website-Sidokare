@@ -48,7 +48,18 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <button class="custom-button">Save</button>
+
+<style>
+    .custom-button {
+        background-color: #1877F2; /* Set the background color */
+        color: #ffffff; /* Set the text color */
+        padding: 10px 20px; /* Add padding to the button */
+        border: none; /* Remove the button border */
+        border-radius: 4px; /* Add border radius to make it look rounded */
+        cursor: pointer; /* Change the cursor to a pointer on hover */
+    }
+</style>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -56,7 +67,7 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
+                    class="text-sm text-green-600"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>

@@ -20,7 +20,7 @@
             <div class="search--notification--profile">
                 <div class="search">
                     <form action="{{ route('users.index') }}" method="GET">
-                        <input type="text" name="query" placeholder="Cari Pegawai" value="{{ $query }}" class="search-input"<button type="submit" class="search-button"<i class="ri-search-2-line"></i><i class="ri-search-2-line"></i></button>
+                        <input type="text" name="query" placeholder="Cari Pegawai" value="{{ $query }}" class="search-input" type="submit" class="search-button" class="ri-search-2-line" input>
                         
                     </form>
                 </div>

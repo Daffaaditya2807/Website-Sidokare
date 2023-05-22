@@ -57,15 +57,16 @@ form{
 }
 .row{
   width: 100%;
-  display: grid;
+  /* display: flex; */
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   grid-gap: 20px 30px;
-  margin-bottom: -20px;
+  margin-bottom: -10px;
 }
 label{
-  color: var(--black-900);
+  color: var(--black-400);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
+  margin-bottom: -10px;
 
 }
 textarea,
@@ -100,6 +101,15 @@ button{
   color: #ffffff;
   border-radius: 3px;
 }
+.column {
+  /* display: flex; */
+  align-items: justify;
+}
+
+.label {
+  margin: 40px 0 40px;
+}
+
 #id_kategori{
   width: 100%;
   font-weight: 400;

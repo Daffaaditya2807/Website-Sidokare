@@ -65,7 +65,7 @@
     text-align: left;
 }
 form .inp{
-    margin: 5px 0 20px;
+    margin: 40px 0 40px;
     width: 100%;
     height: 50px;
     position: relative;
@@ -78,33 +78,30 @@ form .inp input{
     border-color: var(--maincolor);
     transition: 0.3s;
     border-radius: 5px;
+    margin: 10px 0px 20px ;
+    margin-bottom: 20px;
 }
 form .inp input:focus{
     border-color: var(--black-400);
    
-}
-
-form .check-box{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-form .check-box .check{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-form .check-box .check span{
-    font-size: 14px;
-}
-form .check-box .forg{
-    color: var(--maincolor);
-    font-size: 14px;
-    font-style: italic;
     
 }
-form button{
+form .inp1 input{
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px 10px 15px;
+    outline: none;
+    border-color: var(--maincolor);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 10px 0px 20px ;
+
+}
+form .inp1 input:focus{
+    border-color: var(--black-400);
+   
+}
+button{
     width: 100%;
     padding: 15px 0;
     background-color: var(--maincolor);
@@ -113,14 +110,15 @@ form button{
     cursor: pointer;
     border: 1px solid transparent;
     transition: 0.4s;
-    margin-bottom: 20px;
     border-radius: 5px;
+    margin: 2px 0px 2px ;
 }
-form button:hover{
+ button:hover{
     background-color: #fff;
     border-color: #6788ff;
     color: #6788ff;
 }
+
 
 
 /* media */ 
@@ -143,25 +141,7 @@ form button:hover{
 }
 
 /* Pengaturan jarak antara label dan input */
-label {
-    margin-bottom: 5px;
-  }
-  
-  /* Pengaturan jarak antara input dan tombol */
-  .inp {
-    margin-bottom: 10px;
-  }
-  
-  /* Pengaturan jarak antara tombol dan checkbox */
-  .check-box {
-    margin-top: 10px;
-  }
-  
-  /* Pengaturan jarak antara checkbox dan tombol masuk */
-  .check {
-    margin-bottom: 5px;
-  }
-  
+
   
   
   

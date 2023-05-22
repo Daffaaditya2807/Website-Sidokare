@@ -28,26 +28,19 @@
 
                 <form action="">
 
-                    <label for="email">Username</label>
+                    <label for="email">Email</label>
                     <div class="inp">
-                        <input type="texts" placeholder="Masukkan Username" minlength="8">
+                        <input type="Email" placeholder="rama@gmail.com" minlength="8">
                     </div>
 
                     <label for="password">Password</label>
-                    <div class="inp">
-                        <input type="Password" placeholder="Masukkan Password" minlength="8">
+                    <div class="inp1">
+                        <input type="Password" placeholder="*********" minlength="8">
+                       
                     </div>
-
-                    <div class="check-box">
-                        <div class="check">
-                            <input type="checkbox">
-                            <span>Ingatkan saya?</span>
-                        </div>
-                    </div>
-
-                    <button>Masuk</button>
+                  
                 </form>
-
+                <button>Masuk</button>
                
             </div>
         </div>

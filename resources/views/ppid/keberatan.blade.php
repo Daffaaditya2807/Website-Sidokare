@@ -1,6 +1,3 @@
-<!--resources/views/akun/edit.blade.php -->
-
-
 
 <!DOCTYPE html>
     <html lang="en">
@@ -10,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
         <title>Keberatan</title>
-        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita1.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/keberatan1.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -24,10 +21,7 @@
                 <h2>E- <span>Sidokare</span></h2>
             </div>
             <div class="search--notification--profile">
-                
-               
                 </div>
-            </div>
     
         </section>
         <section class="main">
@@ -40,13 +34,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/formpengajuan">
+                        <a href="/formpengajuan" id="active--link">
                             <span class="icon icon-2"><i class="ri-bar-chart-grouped-line"></i></span>
                             <span class="sidebar--item">Pengajuan PPID</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/aspirasi" id="active--link">
+                        <a href="/aspirasi">
                             <span class="icon icon-2"><i class="ri-bar-chart-box-line"></i></span>
                             <span class="sidebar--item">Pengajuan Aspirasi</span>
                         </a>
@@ -109,7 +103,7 @@
 
         </div>
         <div class="main--content">
-                <div class="overview">
+            <div class="overview">
                 <div class="title">
                    <!-- <h2 title="section--title">Formulir Pengajuan </h2> -->
                    <div class="container">
@@ -118,28 +112,40 @@
                         <form>
                          <div class="row">
                              <div class="column">
-                             <label for="name">Nama</label>
-            <input type="text" name="text" class="form-control" value="{{ $ppid->nama }}" required>
-                             </div>
-                             <div class="column">
-                             <label for="alamat">Alamat</label>
-            <input type="text" name="password" class="form-control" value="{{ $ppid->alamat }}" required>
-                             </div>
+                                <label for="name">Nama : </label>
+                                <label for="name">{{ $ppid->nama }}</label>
                          </div>
-                         <div class="row">
                              <div class="column">
-                             <label for="name">Alasan</label>
-            <input type="text" name="text" class="form-control" value="{{ $ppid->alasan }}" required>
+                                <label for="Tanggal">Tanggal : </label>
+                                <label for="Tanggal">{{ \Carbon\Carbon::parse($ppid->created_at)->format('Y-m-d')}}</label>
                              </div>
                              <div class="column">
-                             <label for="alamat">Catatan Tambahan</label>
-            <input type="text" name="password" class="form-control" value="{{ $ppid->catatan_tambahan }}" required>
+                                <label for="alamat">Alamat : </label>
+                                <label for="alamat">{{ $ppid->alamat }}</label>
                              </div>
-                         </div>  
-                     </form>
-       
+                         </div> 
+                        </form>
+                  
+    </div>
 </div>
-</div>
+<div class="table1">
+                        <table 
+                            <thead>
+                                <tr>
+                                    <th>Alasan</th>
+                                    <th>Catatan Tambahan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($alasan as $aspirasi)
+                            <tr>
+                                <td>{{ $aspirasi->alasan }}</td>
+                                <td>{{ $aspirasi->catatan_tambahan }}</td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                </div>
             
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
 <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>

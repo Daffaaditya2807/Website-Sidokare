@@ -1,6 +1,3 @@
-<!--resources/views/akun/edit.blade.php -->
-
-
 
 <!DOCTYPE html>
     <html lang="en">
@@ -10,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
         <title>Keberatan</title>
-        <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita1.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/keberatan1.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -124,7 +121,10 @@
                              </div>
                          </div> 
                         </form>
-                     <div class="table">
+                  
+    </div>
+</div>
+<div class="table1">
                         <table 
                             <thead>
                                 <tr>
@@ -142,8 +142,6 @@
                             </tbody>
                         </table>
                 </div>
-    </div>
-</div>
             
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
 <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>

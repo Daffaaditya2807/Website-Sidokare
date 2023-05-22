@@ -14,7 +14,21 @@ class aspirasiController extends Controller
         $aspirasi = DB::table('pengajuan_aspirasi')
             ->join('akun', 'pengajuan_aspirasi.id_akun', '=', 'akun.id_akun')
             ->get();
-        return view('aspirasi.index', compact('aspirasi'));
+        
+        $total_diajukan = DB::table('pengajuan_aspirasi')
+            ->where('status', 'Diajukan')
+            ->count();
+        $total_diproses = DB::table('pengajuan_aspirasi')
+            ->where('status', 'Diproses')
+            ->count();
+        $total_direview = DB::table('pengajuan_aspirasi')
+            ->where('status', 'Direview')
+            ->count();
+        $total_selesai = DB::table('pengajuan_aspirasi')
+            ->where('status', 'Selesai')
+            ->count();
+
+        return view('aspirasi.index', compact('aspirasi', 'total_diajukan','total_diproses', 'total_direview', 'total_selesai'));
     }
 
     public function edit($id)
@@ -30,14 +44,11 @@ class aspirasiController extends Controller
 
     public function update(Request $request, $id)
     {
-        $judulAspirasi = $request->input('judul_aspirasi');
-        $isiAspirasi = $request->input('isi_aspirasi');
         $status = $request->input('status_aspirasi');
         $docFile = $request->file('doc_file');
-        $filePath;
 
         if ($docFile) {
-            $fileName = $id . '_' . $docFile->getClientOriginalName();
+            $fileName = $id . $docFile->getClientOriginalName();
             $path = $docFile->storeAs('aspirasi', $fileName, 'public');
 
             $existingFilePath = 'storage/aspirasi/' . $fileName;
@@ -48,11 +59,11 @@ class aspirasiController extends Controller
 
             // Path file yang diunggah (dalam folder public)
             $filePath = 'storage/' . $path;
+        }else{
+            $filePath = "";
         }
 
         $data = [
-            'judul_aspirasi' => $judulAspirasi,
-            'isi_aspirasi' => $isiAspirasi,
             'status' => $status,
             'doc_hasil_ppid' => $filePath
         ];
@@ -71,13 +82,18 @@ class aspirasiController extends Controller
         // Logika untuk menghapus aspirasi dengan ID tertentu
     }
 
-        public function keberatan($ida)
+    public function keberatan($id)
     {
         $aspirasi = DB::table('keberatan_aspirasi')
-        ->join('akun', 'keberatan_aspirasi.id_akun', '=', 'akun.id_akun')
-                        ->where('id_aspirasi', $ida)->first();
+                        ->join('akun', 'keberatan_aspirasi.id_akun', '=', 'akun.id_akun')
+                        ->where('id_aspirasi', $id)
+                        ->first();
+        $alasan = DB::table('keberatan_aspirasi')
+                        ->join('akun', 'keberatan_aspirasi.id_akun', '=', 'akun.id_akun')
+                        ->where('id_aspirasi', $id)
+                        ->get();
 
-        return view('aspirasi.keberatan', compact('aspirasi'));
+        return view('aspirasi.keberatan', compact('aspirasi', 'alasan'));
         // Logika untuk menampilkan keberatan dengan ID tertentu
     }
 

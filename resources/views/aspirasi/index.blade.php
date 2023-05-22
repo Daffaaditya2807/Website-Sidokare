@@ -112,6 +112,57 @@
         </div>
         <div class="main--content">
             <div class="overview">
+            <div class="title">
+                   <h2 title="section--title">Jumlah Pengajuan</h2>
+                </div>
+                <div class="cards">
+                  <div class="card card-1">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Diajukan</h5>
+                            <h1>{{ $total_diajukan }}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div>
+                  <div class="card card-2">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Diproses</h5>
+                            <h1>{{$total_diproses}}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div><div class="card card-3">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Direview</h5>
+                            <h1>{{$total_direview}}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div><div class="card card-4">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Selesai</h5>
+                            <h1>{{$total_selesai}}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div>
+                </div>
                 <div class="title">
                    <h2 title="section--title">Tabel Aspirasi </h2>
                 </div>
@@ -138,9 +189,6 @@
                         <div class="button-container">
                             @if($aspirasi->status == 'Revisi')
                             <a href="{{ route('aspirasi.keberatan', $aspirasi->	id_pengajuan_aspirasi) }}" class="ri-question-mark"></a>
-                            @endif
-                            @if ($aspirasi->status == 'Direvisi')
-                            <a href="{{ route('aspirasi.keberatan', $aspirasi->	id_pengajuan_aspirasi) }}" class="ri-close-circle-line edit"></a>
                             @endif
                             <a href="{{ route('aspirasi.edit', $aspirasi->id_pengajuan_aspirasi) }}" class="ri-edit-line edit"></a>
                             <form action="{{ route('aspirasi.destroy', $aspirasi->id_pengajuan_aspirasi) }}" method="POST" class="d-inline">

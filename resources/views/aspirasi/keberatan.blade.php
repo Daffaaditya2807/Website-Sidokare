@@ -24,10 +24,7 @@
                 <h2>E- <span>Sidokare</span></h2>
             </div>
             <div class="search--notification--profile">
-                
-               
                 </div>
-            </div>
     
         </section>
         <section class="main">
@@ -109,7 +106,7 @@
 
         </div>
         <div class="main--content">
-                <div class="overview">
+            <div class="overview">
                 <div class="title">
                    <!-- <h2 title="section--title">Formulir Pengajuan </h2> -->
                    <div class="container">
@@ -118,27 +115,34 @@
                         <form>
                          <div class="row">
                              <div class="column">
-                             <label for="name">Nama</label>
-            <input type="text" name="text" class="form-control" value="{{ $aspirasi->nama }}" required>
+                                <label for="name">Nama : </label>
+                                <label for="name">{{ $aspirasi->nama }}</label>
                              </div>
                              <div class="column">
-                             <label for="alamat">Alamat</label>
-            <input type="text" name="password" class="form-control" value="{{ $aspirasi->alamat }}" required>
+                                <label for="alamat">Alamat : </label>
+                                <label for="alamat">{{ $aspirasi->alamat }}</label>
                              </div>
-                         </div>
-                         <div class="row">
-                             <div class="column">
-                             <label for="name">Alasan</label>
-            <input type="text" name="text" class="form-control" value="{{ $aspirasi->alasan }}" required>
-                             </div>
-                             <div class="column">
-                             <label for="alamat">Catatan Tambahan</label>
-            <input type="text" name="password" class="form-control" value="{{ $aspirasi->catatan_tambahan }}" required>
-                             </div>
-                         </div>  
-                     </form>
-       
-</div>
+                         </div> 
+                        </form>
+                     <div class="table">
+                        <table 
+                            <thead>
+                                <tr>
+                                    <th>Alasan</th>
+                                    <th>Catatan Tambahan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($alasan as $aspirasi)
+                            <tr>
+                                <td>{{ $aspirasi->alasan }}</td>
+                                <td>{{ $aspirasi->catatan_tambahan }}</td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                </div>
+    </div>
 </div>
             
 <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>

@@ -139,10 +139,10 @@
                         <td>
                         <div class="button-container">
                             @if($ppid->status == 'Revisi')
-                            <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-edit-line edit"></a>
+                            <a href="{{ route('ppid.keberatan', $ppid->id) }}" class="ri-edit-line edit"></a>
                             @endif
                             @if ($ppid->status == 'Direvisi')
-                            <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-close-circle-line"></a>
+                            <a href="{{ route('ppid.keberatan', $ppid->id) }}" class="ri-close-circle-line"></a>
                             @endif
                             <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-edit-line edit"></a>
                             <form action="{{ route('ppid.destroy', $ppid->id) }}" method="POST" class="d-inline">

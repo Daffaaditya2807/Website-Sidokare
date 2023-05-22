@@ -71,12 +71,13 @@ Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.in
 Route::get('/aspirasi/{id}/edit', [AspirasiController::class, 'edit'])->name('aspirasi.edit');
 Route::put('/aspirasi/{id}', [AspirasiController::class, 'update'])->name('aspirasi.update');
 Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy'])->name('aspirasi.destroy');
-Route::get('/aspirasi/{ida}/keberatan', [AspirasiController::class, 'keberatan'])->name('aspirasi.keberatan');
+Route::get('/aspirasi/{id}/keberatan', [AspirasiController::class, 'keberatan'])->name('aspirasi.keberatan');
 
 Route::get('/formpengajuan', [pengajuanppidController::class, 'index'])->name('ppid.index');
 Route::get('/ppid/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');
 Route::put('/ppid/{id}', [pengajuanppidController::class, 'update'])->name('ppid.update');
 Route::delete('/ppid/{id}', [pengajuanppidController::class, 'destroy'])->name('ppid.destroy');
+Route::get('/ppid/{id}/keberatan', [pengajuanppidController::class, 'keberatan'])->name('ppid.keberatan');
 
 Route::get('/keluhan', [pengajuanppidController::class, 'index'])->name('ppid.index');
 Route::get('/keluhan/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');

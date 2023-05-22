@@ -12,6 +12,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\keluhanController;
 use App\Http\Controllers\AkunsController;
 use App\Http\Controllers\aspirasiController;
+use App\Http\Controllers\pengajuanppidController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,15 +50,6 @@ Route::get('/formpengajuan', function () {
 Route::get('/berita', function () {
     return view('berita');
 });
-Route::get('/formpengajuan', [ppidController::class, 'index'])->name('formpengajuan.index');
-Route::post('/ppid/store', [ppidController::class, 'store']);
-Route::get('/ppid/{id}/edit', [ppidController::class, 'edit']);
-Route::get('/ppid/{id}/revisi', [ppidController::class, 'revisi']);
-Route::put('/ppid/{id}', [ppidController::class, 'update'])->name('ppid.update');
-Route::get('/ppid/{id}/export', [ppidController::class, 'export'])->name('ppid.export');
-Route::delete('/formpengajuan/{id}', [ppidController::class, 'destroy'])->name('ppid.destroy');
-Route::get('/formpengajuan/search', [ppidController::class, 'search']);
-Route::get('/formpengajuan/filter', [ppidController::class, 'filter']);
 
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
 Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
@@ -87,3 +79,8 @@ Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.in
 Route::get('/aspirasi/{id}/edit', [AspirasiController::class, 'edit'])->name('aspirasi.edit');
 Route::put('/aspirasi/{id}', [AspirasiController::class, 'update'])->name('aspirasi.update');
 Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy'])->name('aspirasi.destroy');
+
+Route::get('/formpengajuan', [pengajuanppidController::class, 'index'])->name('ppid.index');
+Route::get('/ppid/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');
+Route::put('/ppid/{id}', [pengajuanppidController::class, 'update'])->name('ppid.update');
+Route::delete('/ppid/{id}', [pengajuanppidController::class, 'destroy'])->name('ppid.destroy');

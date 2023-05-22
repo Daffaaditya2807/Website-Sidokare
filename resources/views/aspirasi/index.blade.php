@@ -137,10 +137,10 @@
                         <td>
                         <div class="button-container">
                             @if($aspirasi->status == 'Revisi')
-                            <a href="{{ route('aspirasi.keberatan', $aspirasi->	id_aspirasi) }}" class="ri-question-mark"></a>
+                            <a href="{{ route('aspirasi.keberatan', $aspirasi->	id_pengajuan_aspirasi) }}" class="ri-question-mark"></a>
                             @endif
                             @if ($aspirasi->status == 'Direvisi')
-                            <a href="{{ route('aspirasi.keberatan', $aspirasi->	id_aspirasi) }}" class="ri-close-circle-line edit"></a>
+                            <a href="{{ route('aspirasi.keberatan', $aspirasi->	id_pengajuan_aspirasi) }}" class="ri-close-circle-line edit"></a>
                             @endif
                             <a href="{{ route('aspirasi.edit', $aspirasi->id_pengajuan_aspirasi) }}" class="ri-edit-line edit"></a>
                             <form action="{{ route('aspirasi.destroy', $aspirasi->id_pengajuan_aspirasi) }}" method="POST" class="d-inline">

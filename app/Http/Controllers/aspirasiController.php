@@ -73,9 +73,11 @@ class aspirasiController extends Controller
 
         public function keberatan($ida)
     {
-        $ppid = DB::table('keberatan_aspirasi')->where('id_keberatan_aspirasi', $ida)->first();
+        $aspirasi = DB::table('keberatan_aspirasi')
+        ->join('akun', 'keberatan_aspirasi.id_akun', '=', 'akun.id_akun')
+                        ->where('id_aspirasi', $ida)->first();
 
-        return view('aspirasi.keberatan', compact('ppid'));
+        return view('aspirasi.keberatan', compact('aspirasi'));
         // Logika untuk menampilkan keberatan dengan ID tertentu
     }
 

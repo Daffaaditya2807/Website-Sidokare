@@ -123,17 +123,17 @@
                              </div>
                              <div class="column">
                              <label for="alamat">Alamat</label>
-            <input type="password" name="password" class="form-control" value="{{ $aspirasi->nama }}" required>
+            <input type="text" name="password" class="form-control" value="{{ $aspirasi->alamat }}" required>
                              </div>
                          </div>
                          <div class="row">
                              <div class="column">
                              <label for="name">Alasan</label>
-            <input type="text" name="text" class="form-control" value="" required>
+            <input type="text" name="text" class="form-control" value="{{ $aspirasi->alasan }}" required>
                              </div>
                              <div class="column">
                              <label for="alamat">Catatan Tambahan</label>
-            <input type="password" name="password" class="form-control" required>
+            <input type="text" name="password" class="form-control" value="{{ $aspirasi->catatan_tambahan }}" required>
                              </div>
                          </div>  
                      </form>

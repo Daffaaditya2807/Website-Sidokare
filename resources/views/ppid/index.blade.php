@@ -171,7 +171,7 @@
                     <div class="card--data">
                         <div class="card--content">
                             <h5 class="card--title">Ditolak</h5>
-                            <h1>{{ $total_diajukan }}</h1>
+                            <h1>{{ $total_ditolak }}</h1>
                         </div>
                         <i class="ri-bar-chart-fill card--icon--lg"></i>
                     </div>

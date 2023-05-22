@@ -125,7 +125,7 @@
                     <!-- <h1>Edit Berita</h1> -->
                     <div class="title">
                    <div class="container">
-                    <header>Formulir Edit Aspirasi Desa Sidokare</header>
+                    <header>Formulir Edit Keluhan Desa Sidokare</header>
             
                     <form action="{{ route('keluhan.update', $keluhan->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -137,7 +137,7 @@
                                  <label for="judul">Nama Pelapor</label>
                                  <input type="text" class="form-control" id="nama_pelapor" name="nama_pelapor" value="{{ $keluhan->nama }}" required>
                              </div>
-                                 <label for="judul">Judul Aspirasi</label>
+                                 <label for="judul">Judul Keluhan</label>
                                  <input type="text" class="form-control" id="judul_aspirasi" name="judul_aspirasi" value="{{ $keluhan->judul_laporan }}" required>
                              </div>
                              <div class="column">
@@ -154,7 +154,7 @@
 
                          <div class="row">
                             <div class="column">
-                                <label for="isi_berita">Isi Aspirasi</label>
+                                <label for="isi_berita">Isi Keluhan</label>
                                <textarea class="form-control" id="isi_aspirasi" name="isi_aspirasi" required>{{ $keluhan->isi_laporan }}</textarea>
                             </div>
                             <div class="form-outline mb-4">

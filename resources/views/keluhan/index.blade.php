@@ -181,7 +181,7 @@
                   </div>
                 </div>
                 <div class="title">
-                   <h2 title="section--title">Tabel Aspirasi </h2>
+                   <h2 title="section--title">Tabel Keluhan</h2>
                 </div>
 
                 <div class="table">

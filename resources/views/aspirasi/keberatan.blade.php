@@ -116,8 +116,8 @@
                                 <label for="name">{{ $aspirasi->nama }}</label>
                          </div>
                              <div class="column">
-                                <!-- <label for="alamat">Alamat : </label>
-                                <label for="alamat">{{ $aspirasi->alamat }}</label> -->
+                                <label for="Tanggal">Tanggal : </label>
+                                <label for="Tanggal"></label>
                              </div>
                              <div class="column">
                                 <label for="alamat">Alamat : </label>

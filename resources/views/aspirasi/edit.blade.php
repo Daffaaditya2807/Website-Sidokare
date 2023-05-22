@@ -167,7 +167,7 @@
                                 <input type="file" id="foto" name="foto" style="display: none;">
                         </div>
                         <input type="file" name="doc_file">
-                         <button type="submit" class="btn btn-primary">Simpan</button>
+                         <button type="submit" id="btnSimpan"  class="btn btn-primary">Simpan</button>
                 </div>
             </div>      
                                
@@ -180,5 +180,21 @@
             <script src="{{ asset('frontend/assets/js/formulir.js') }}"></script>
             <script src="{{ asset('frontend/assets/js/dashboard.js') }}"></script>
             <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.getElementById('btnSimpan').addEventListener('click', function() {
+        // Lakukan proses penyimpanan data ke database di sini
+        // Setelah proses berhasil, tampilkan notifikasi menggunakan SweetAlert
+
+        // Contoh notifikasi menggunakan SweetAlert
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil di edit',
+            showConfirmButton: false,
+            timer: 1500
+        });
+    });
+</script>
        </body>
        </html>

@@ -433,7 +433,7 @@ td,th{
     border-radius: 30px;
     /* text-align: center; */
 }
-.delete{
+.ri-delete-bin-line{
     color: #e86787;
     margin-right: -30px;
     border: none;
@@ -441,6 +441,14 @@ td,th{
     width: 30px;
     border-radius: 30px;
     /* text-align: center; */
+}
+.ri-question-mark{
+    color: #4454cc;
+    margin-right: -30px;
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
 }
 .pending{
     color: #f1d243;

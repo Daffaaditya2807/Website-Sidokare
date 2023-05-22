@@ -213,7 +213,7 @@
                             <form action="{{ route('aspirasi.destroy', $aspirasi->id_pengajuan_aspirasi) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus aspirasi ini?')"></button>
+                                <button type="submit" class="ri-delete-bin-line" onclick="return confirm('Apakah Anda yakin ingin menghapus aspirasi ini?')"></button>
                             </form>
                         </div>
                     </td>

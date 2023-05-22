@@ -133,13 +133,21 @@
                         <form>
                          <div class="row">
                              <div class="column">
-                             <div class="column">
                                  <label for="judul">Nama Pelapor</label>
                                  <input type="text" class="form-control" id="nama_pelapor" name="nama_pelapor" value="{{ $keluhan->nama }}" required>
                              </div>
+                             <div class="column">
                                  <label for="judul">Judul Keluhan</label>
                                  <input type="text" class="form-control" id="judul_aspirasi" name="judul_aspirasi" value="{{ $keluhan->judul_laporan }}" required>
                              </div>
+                            </div>
+                            <div class="row">
+                            <div class="column">
+                                    <label for="judul">Kategori PPID</label>
+                                    <input type="text" class="form-control" id="judul_aspirasi" name="judul_laporan" value="{{ $keluhan->kategori_laporan }}" required>
+                            </div>
+                            </div>
+                            <div class="row">
                              <div class="column">
                                  <label for="tanggal_publikasi">Status</label>
                                  <select class="form-control" id="id_kategori" name="status_keluhan" >
@@ -162,7 +170,7 @@
                             <label for="foto" class="form-label">Foto</label>
                         
                                 @if ($keluhan->upload_file_pendukung)
-                                    <img src="{{ asset('storage/aspirasi/'.$aspirasi->upload_file_pendukung) }}" alt="{{ $aspirasi->upload_file_pendukung }}">
+                                    <img src="{{ asset('storage/keluhan/'.$aspirasi->upload_file_pendukung) }}" alt="{{ $aspirasi->upload_file_pendukung }}">
                                 @endif
                                 <input type="file" id="foto" name="foto" style="display: none;">
                         </div>

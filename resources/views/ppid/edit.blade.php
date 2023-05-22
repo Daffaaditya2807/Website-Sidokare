@@ -145,7 +145,7 @@
                          <div class="row">
                          <div class="column">
                                  <label for="judul">Kategori PPID</label>
-                                 <input type="text" class="form-control" id="judul_aspirasi" name="judul_laporan" value="{{ $ppid->judul_laporan }}" required>
+                                 <input type="text" class="form-control" id="judul_aspirasi" name="judul_laporan" value="{{ $ppid->kategori_ppid }}" required>
                          </div>
                          </div>
                          <div class="row">
@@ -172,7 +172,7 @@
                             <label for="foto" class="form-label">Foto</label>
                         
                                 @if ($ppid->upload_file_pendukung)
-                                    <img src="{{ asset('storage/aspirasi/'.$ppid->upload_file_pendukung) }}" alt="{{ $ppid->upload_file_pendukung }}">
+                                    <img src="{{ asset('storage/ppid/'.$ppid->upload_file_pendukung) }}" alt="{{ $ppid->upload_file_pendukung }}">
                                 @endif
                                 <input type="file" id="foto" name="foto" style="display: none;">
                         </div>

@@ -200,7 +200,7 @@
                     @foreach ($ppid as $index => $ppid)
                     <tr>
                         <td>{{ $index + 1 }}</td>
-                        <td>{{ $ppid->nama_pelapor }}</td>
+                        <td>{{ $ppid->nama }}</td>
                         <td>{{ $ppid->judul_laporan }}</td>
                         <td>{{ $ppid->status }}</td>
                         <td>{{ $ppid->kategori_ppid }}</td>

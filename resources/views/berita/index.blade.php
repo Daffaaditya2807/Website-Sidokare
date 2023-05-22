@@ -143,7 +143,7 @@
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $berita->judul_berita }}</td>
-                <td>{{ $berita->tanggal_publikasi }}</td>
+                <td>{{ \Carbon\Carbon::parse($berita->tanggal_publikasi)->format('Y-m-d') }}</td>
                 <td>
                     @if ($berita->id_kategori === 'ktg_berita01')
                         BUM Desa

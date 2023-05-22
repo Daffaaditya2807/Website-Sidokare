@@ -56,9 +56,9 @@ class pengajuankeluhanController extends Controller
 
         if ($docFile) {
             $fileName = $id . $docFile->getClientOriginalName();
-            $path = $docFile->storeAs('aspirasi', $fileName, 'public');
+            $path = $docFile->storeAs('keluhan', $fileName, 'public');
 
-            $existingFilePath = 'storage/aspirasi/' . $fileName;
+            $existingFilePath = 'storage/keluhan/' . $fileName;
             if (Storage::exists($existingFilePath)) {
                 Storage::delete($existingFilePath);
                 // File berhasil dihapus

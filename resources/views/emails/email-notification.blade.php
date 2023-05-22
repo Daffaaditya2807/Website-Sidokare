@@ -101,7 +101,7 @@
             <table class="table-width">
               <tr>
                 <td colspan="5" class="img-container ">
-                    <img src="https://drive.google.com/file/d/1829duQJDZiA94oLEQQqMU45BgHj36Lbv/view?usp=share_link"> 
+                    <!-- <img src="https://drive.google.com/file/d/1829duQJDZiA94oLEQQqMU45BgHj36Lbv/view?usp=share_link">  -->
                 </td>
               </tr>
     

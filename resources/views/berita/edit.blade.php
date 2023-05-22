@@ -130,7 +130,7 @@
                     <!-- <h1>Edit Berita</h1> -->
                     <div class="title">
                    <div class="container">
-                    <header>Formulir Pembuatan Berita Desa Sidokare</header>
+                    <header>Formulir Edit Berita Desa Sidokare</header>
             
                     <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf

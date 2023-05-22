@@ -171,7 +171,7 @@
                     <div class="card--data">
                         <div class="card--content">
                             <h5 class="card--title">Ditolak</h5>
-                            <h1>{{ $total_diajukan }}</h1>
+                            <h1>{{ $total_ditolak }}</h1>
                         </div>
                         <i class="ri-bar-chart-fill card--icon--lg"></i>
                     </div>
@@ -192,6 +192,7 @@
                             <th>Nama Pelapor</th>
                             <th>Judul Aspirasi</th>
                             <th>Status</th>
+                            <th>Kategori</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -202,6 +203,7 @@
                         <td>{{ $keluhan->nama }}</td>
                         <td>{{ $keluhan->judul_laporan }}</td>
                         <td>{{ $keluhan->status }}</td>
+                        <td>{{ $keluhan->kategori_laporan }}</td>
                         <td>
                         <div class="button-container">
                             @if($keluhan->status == 'Revisi')

@@ -141,3 +141,30 @@ form button:hover{
         width: 80%;
     }
 }
+
+/* Pengaturan jarak antara label dan input */
+label {
+    margin-bottom: 5px;
+  }
+  
+  /* Pengaturan jarak antara input dan tombol */
+  .inp {
+    margin-bottom: 10px;
+  }
+  
+  /* Pengaturan jarak antara tombol dan checkbox */
+  .check-box {
+    margin-top: 10px;
+  }
+  
+  /* Pengaturan jarak antara checkbox dan tombol masuk */
+  .check {
+    margin-bottom: 5px;
+  }
+  
+  
+  
+  
+  
+  
+  

@@ -115,33 +115,27 @@
                    <div class="container">
                     <header>Keberatan Aspirasi</header>
                
-            
-       
-            
                         <form>
                          <div class="row">
                              <div class="column">
                              <label for="name">Nama</label>
+            <input type="text" name="text" class="form-control" value="{{ $aspirasi->nama }}" required>
+                             </div>
+                             <div class="column">
+                             <label for="alamat">Alamat</label>
+            <input type="password" name="password" class="form-control" value="{{ $aspirasi->nama }}" required>
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="column">
+                             <label for="name">Alasan</label>
             <input type="text" name="text" class="form-control" value="" required>
                              </div>
                              <div class="column">
-                             <label for="alamat">alamat</label>
+                             <label for="alamat">Catatan Tambahan</label>
             <input type="password" name="password" class="form-control" required>
                              </div>
-                         </div>
-                             <div class="column">
-                             <label for="name">Alasan</label>
-            <input type="text" name="name" class="form-control"  required>       
-            </div>   
-        </div>
-        </div>
-                             <div class="column">
-                             <label for="name">Catatan Tambahan</label>
-            <input type="text" name="name" class="form-control"  required>       
-            </div>   
-        </div>
-        <button type="submit" id="btnSimpan" class="btn btn-primary">Simpan</button>
-                        
+                         </div>  
                      </form>
        
 </div>

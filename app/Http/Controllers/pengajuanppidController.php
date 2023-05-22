@@ -71,7 +71,7 @@ class pengajuanppidController extends Controller
         // Logika untuk menghapus aspirasi dengan ID tertentu
     }
 
-    public function keluhan($id)
+    public function keberatan($id)
     {
         $ppid = DB::table('keberatan_ppid')->where('id', $id);
     

@@ -70,4 +70,13 @@ class aspirasiController extends Controller
         return redirect()->route('aspirasi.index')->with('success', 'Aspirasi berhasil dihapus.');
         // Logika untuk menghapus aspirasi dengan ID tertentu
     }
+
+        public function keberatan($ida)
+    {
+        $ppid = DB::table('keberatan_aspirasi')->where('id_keberatan_aspirasi', $ida)->first();
+
+        return view('aspirasi.keberatan', compact('ppid'));
+        // Logika untuk menampilkan keberatan dengan ID tertentu
+    }
+
 }

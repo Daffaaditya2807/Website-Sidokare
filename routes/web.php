@@ -71,6 +71,7 @@ Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.in
 Route::get('/aspirasi/{id}/edit', [AspirasiController::class, 'edit'])->name('aspirasi.edit');
 Route::put('/aspirasi/{id}', [AspirasiController::class, 'update'])->name('aspirasi.update');
 Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy'])->name('aspirasi.destroy');
+Route::get('/aspirasi/{ida}/keberatan', [AspirasiController::class, 'keberatan'])->name('aspirasi.keberatan');
 
 Route::get('/formpengajuan', [pengajuanppidController::class, 'index'])->name('ppid.index');
 Route::get('/ppid/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');

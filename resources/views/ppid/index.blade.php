@@ -18,7 +18,7 @@
         <div class="search--notification--profile">
         <div class="search">
                     
-                    <form action="{{ route('aspirasi.index') }}" method="GET">
+                    <form action="{{ route('ppid.index') }}" method="GET">
                         
                         <input type="text" name="search" placeholder="Cari Aspirasi" value="" type="submit" class="search-button"input>
 

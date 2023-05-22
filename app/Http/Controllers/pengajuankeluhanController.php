@@ -9,65 +9,99 @@ use Illuminate\Support\Facades\Storage;
 
 class pengajuankeluhanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $ppid = DB::table('pengajuan_ppids')
-            ->join('akun', 'pengajuan_ppids.id_akun', '=', 'akun.id_akun')
-            ->get();
-        return view('ppid.index', compact('ppid'));
+        $search = $request->input('search');
+
+        $keluhan = DB::table('pengajuan_keluhan')
+                ->join('akun', 'pengajuan_keluhan.id_akun', '=', 'akun.id_akun')
+                ->where('akun.nama', 'LIKE', '%' . $search . '%')
+                ->orWhere('pengajuan_keluhan.judul_laporan', 'LIKE', '%' . $search . '%')
+                ->get();
+        
+        $total_diajukan = DB::table('pengajuan_keluhan')
+            ->where('status', 'Diajukan')
+            ->count();
+        $total_diproses = DB::table('pengajuan_keluhan')
+            ->where('status', 'Diproses')
+            ->count();
+        $total_direview = DB::table('pengajuan_keluhan')
+            ->where('status', 'Direview')
+            ->count();
+        $total_selesai = DB::table('pengajuan_keluhan')
+            ->where('status', 'Selesai')
+            ->count();
+        $total_ditolak = DB::table('pengajuan_keluhan')
+            ->where('status', 'Ditolak')
+            ->count();
+
+        return view('keluhan.index', compact('keluhan', 'total_diajukan','total_diproses', 'total_direview', 'total_selesai', 'total_ditolak'));
     }
 
     public function edit($id)
     {
-        $ppid = DB::table('pengajuan_ppids')
-                        ->join('akun', 'pengajuan_ppids.id_akun', '=', 'akun.id_akun')
-                        ->where('id', $id)
+        $keluhan = DB::table('pengajuan_keluhan')
+                        ->join('akun', 'pengajuan_keluhan.id_akun', '=', 'akun.id_akun')
+                        ->where('pengajuan_keluhan.id', $id)
                         ->first();
         
-        return view('ppid.edit', compact('ppid'));
+        return view('keluhan.edit', compact('keluhan'));
         // Logika untuk mengedit aspirasi dengan ID tertentu
     }    
 
     public function update(Request $request, $id)
     {
-        $judulppid = $request->input('judul_laporan');
-        $isippid = $request->input('isi_laporan');
-        $statusppid = $request->input('status');
-        $docppid = $request->file('doc_fileppid');
-        $fileppid;
+        $status = $request->input('status_keluhan');
+        $docFile = $request->file('doc_filekeluhan');
 
-        if ($docppid) {
-            $fileppid = $id . '_' . $docppid->getClientOriginalName();
-            $path = $docppid->storeAs('ppid', $fileppid, 'public');
+        if ($docFile) {
+            $fileName = $id . $docFile->getClientOriginalName();
+            $path = $docFile->storeAs('aspirasi', $fileName, 'public');
 
-            $existingFilePath = 'storage/ppid/' . $fileppid;
+            $existingFilePath = 'storage/aspirasi/' . $fileName;
             if (Storage::exists($existingFilePath)) {
                 Storage::delete($existingFilePath);
                 // File berhasil dihapus
             }
 
             // Path file yang diunggah (dalam folder public)
-            $fileppid = 'storage/' . $path;
+            $filePath = 'storage/' . $path;
+        }else{
+            $filePath = "";
         }
 
         $data = [
-            'judul_laporan' => $judulppid,
-            'isi_laporan' => $isippid,
-            'status' => $statusppid,
-            'doc_hasil_ppid' => $fileppid
+            'status' => $status,
+            'doc_hasil_keluhan' => $filePath
         ];
 
-        DB::table('pengajuan_ppids')->where('id', $id)->update($data);
+        DB::table('pengajuan_keluhan')->where('id', $id)->update($data);
 
-        return redirect()->route('ppid.index')->with('success', 'Data aspirasi berhasil diperbarui.');
+        return redirect()->route('keluhan.index')->with('success', 'Data keluhan berhasil diperbarui.');
     }
 
 
     public function destroy($id)
     {
-        $ppid = DB::table('pengajuan_ppids')->where('id', $id)->delete();
+        $aspirasi = DB::table('pengajuan_keluhan')->where('id', $id)->delete();
     
-        return redirect()->route('ppid.index')->with('success', 'Aspirasi berhasil dihapus.');
+        return redirect()->route('aspirasi.index')->with('success', 'Keluhan berhasil dihapus.');
         // Logika untuk menghapus aspirasi dengan ID tertentu
     }
+
+    public function keberatan($id)
+    {
+        $keluhan = DB::table('keberatan_keluhan')
+                        ->join('akun', 'keberatan_keluhan.id_akun', '=', 'akun.id_akun')
+                        ->where('id_keluhan', $id)
+                        ->first();
+        $alasan = DB::table('keberatan_keluhan')
+                        ->join('akun', 'keberatan_keluhan.id_akun', '=', 'akun.id_akun')
+                        ->where('id_keluhan', $id)
+                        ->get();
+
+        return view('keluhan.keberatan', compact('keluhan', 'alasan'));
+        // Logika untuk menampilkan keberatan dengan ID tertentu
+    }
+
 }

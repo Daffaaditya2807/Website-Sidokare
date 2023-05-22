@@ -13,6 +13,7 @@ use App\Http\Controllers\keluhanController;
 use App\Http\Controllers\AkunsController;
 use App\Http\Controllers\aspirasiController;
 use App\Http\Controllers\pengajuanppidController;
+use App\Http\Controllers\pengajuankeluhanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -83,4 +84,4 @@ Route::get('/keluhan', [pengajuankeluhanController::class, 'index'])->name('kelu
 Route::get('/keluhan/{id}/edit', [pengajuankeluhanController::class, 'edit'])->name('keluhan.edit');
 Route::put('/keluhan/{id}', [pengajuankeluhanController::class, 'update'])->name('keluhan.update');
 Route::delete('/keluhan/{id}', [pengajuankeluhanController::class, 'destroy'])->name('keluhan.destroy');
-Route::get('/keluhan/{id}/edit', [pengajuankeluhanController::class, 'keluhan'])->name('keluhan.keberatan');
+Route::get('/keluhan/{id}/keberatan', [pengajuankeluhanController::class, 'keberatan'])->name('keluhan.keberatan');

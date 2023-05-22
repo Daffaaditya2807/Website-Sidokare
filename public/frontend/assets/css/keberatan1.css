@@ -103,6 +103,7 @@ button{
 }
 .column {
   /* display: flex; */
+  margin-bottom: 8px;
   align-items: justify;
 }
 

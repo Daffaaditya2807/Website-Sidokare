@@ -246,7 +246,7 @@ a{
 .card{
     padding: 20px;
     border-radius: 20px;
-    min-width: 160px;
+    min-width: 180px;
     height: auto;
     transition: .3s;
     /* background-color: var(--maincolor); */
@@ -407,6 +407,7 @@ tr{
 }
 td,th{
     padding-block: 10px;
+    border-bottom: 1px solid  rgba(255,167,79,0.5);
    
 }
 .add{

@@ -397,6 +397,7 @@ tr{
 }
 td,th{
     padding-block: 10px;
+    border-bottom: 1px solid  rgba(255,167,79,0.5);
    
 }
 .add{

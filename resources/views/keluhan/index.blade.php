@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengajuan</title>
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard1.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/aspirasi.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
@@ -160,6 +160,18 @@
                         <div class="card--content">
                             <h5 class="card--title">Selesai</h5>
                             <h1>{{$total_selesai}}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div>
+                  <div class="card card-5">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Ditolak</h5>
+                            <h1>{{ $total_diajukan }}</h1>
                         </div>
                         <i class="ri-bar-chart-fill card--icon--lg"></i>
                     </div>

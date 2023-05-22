@@ -63,14 +63,6 @@ Route::resource('users', AkunController::class);
 
 Route::post('/kirim-email', [EmailController::class, 'kirimEmail']);
 
-//keluhan
-Route::get('/keluhan', [keluhanController::class, 'keluhan'])->name('keluhan.index');
-Route::get('/keluhan/{id}/edit', [keluhanController::class, 'edit']);
-Route::put('/keluhan/{id}', [keluhanController::class, 'update'])->name('keluhan.update');
-Route::get('/keluhan/{id}/export', [keluhanController::class, 'export'])->name('keluhan.export');
-Route::get('/keluhan/search', [keluhanController::class, 'search']);
-Route::get('/keluhan/filter', [keluhanController::class, 'filter']);
-Route::delete('/keluhan/{id}', [keluhanController::class, 'destroy'])->name('keluhan.destroy');
 Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
 
 Route::resource('akun', AkunsController::class);
@@ -84,3 +76,8 @@ Route::get('/formpengajuan', [pengajuanppidController::class, 'index'])->name('p
 Route::get('/ppid/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');
 Route::put('/ppid/{id}', [pengajuanppidController::class, 'update'])->name('ppid.update');
 Route::delete('/ppid/{id}', [pengajuanppidController::class, 'destroy'])->name('ppid.destroy');
+
+Route::get('/keluhan', [pengajuanppidController::class, 'index'])->name('ppid.index');
+Route::get('/keluhan/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');
+Route::put('/keluhan/{id}', [pengajuanppidController::class, 'update'])->name('ppid.update');
+Route::delete('/keluhan/{id}', [pengajuanppidController::class, 'destroy'])->name('ppid.destroy');

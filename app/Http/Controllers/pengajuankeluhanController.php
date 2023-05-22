@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Storage;
 
-class pengajuanppidController extends Controller
+class pengajuankeluhanController extends Controller
 {
     public function index()
     {
@@ -66,14 +66,6 @@ class pengajuanppidController extends Controller
     public function destroy($id)
     {
         $ppid = DB::table('pengajuan_ppids')->where('id', $id)->delete();
-    
-        return redirect()->route('ppid.index')->with('success', 'Aspirasi berhasil dihapus.');
-        // Logika untuk menghapus aspirasi dengan ID tertentu
-    }
-
-    public function keluhan($id)
-    {
-        $ppid = DB::table('keberatan_ppid')->where('id', $id);
     
         return redirect()->route('ppid.index')->with('success', 'Aspirasi berhasil dihapus.');
         // Logika untuk menghapus aspirasi dengan ID tertentu

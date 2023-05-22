@@ -34,6 +34,7 @@ class aspirasiController extends Controller
         $isiAspirasi = $request->input('isi_aspirasi');
         $status = $request->input('status_aspirasi');
         $docFile = $request->file('doc_file');
+        $filePath;
 
         if ($docFile) {
             $fileName = $id . '_' . $docFile->getClientOriginalName();

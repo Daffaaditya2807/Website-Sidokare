@@ -143,13 +143,12 @@
                              </div>
                              <div class="column">
                                  <label for="tanggal_publikasi">Status</label>
-                                 <select class="form-control" id="id_kategori" name="status">
-                                    <option value="">{{ $ppid->status }}</option>
+                                 <select class="form-control" id="id_kategori" name="statusppid">
+                                 <option value="" hidden>{{ $ppid->status }}</option>
                                     <option value="Diproses">Diproses</option>
-                                    <option value="Ditolak">Ditolak</option>
-                                    <option value="Revisi">Revisi</option>
-                                    <option value="Direvisi">Direvisi</option>
+                                    <option value="Diproses">Direview</option>
                                     <option value="Selesai">Selesai</option>
+                                    <option value="Ditolak">Ditolak</option>
                                 </select>
                              </div>
                          </div>

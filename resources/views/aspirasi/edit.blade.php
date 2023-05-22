@@ -143,7 +143,7 @@
                              <div class="column">
                                  <label for="tanggal_publikasi">Status</label>
                                  <select class="form-control" id="id_kategori" name="status_aspirasi" >
-                                    <option value="anjay" hidden>{{ $aspirasi->status }}</option>
+                                    <option value="" hidden>{{ $aspirasi->status }}</option>
                                     <option value="Diproses">Diproses</option>
                                     <option value="Diproses">Direview</option>
                                     <option value="Selesai">Selesai</option>

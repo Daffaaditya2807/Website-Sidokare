@@ -22,7 +22,7 @@
                     <form action="{{ route('akun.index') }}" method="GET">
                         
                      
-                        <input type="text" name="query" placeholder="Cari Pengguna" value="{{ $query }}" class="search-input"   <button type="submit" class="search-button"><i class="ri-search-2-line"></i></button>
+                        <input type="text" name="query" placeholder="Cari Pengguna" value="{{ $query }}" class="search-input" type="submit" class="search-button"input>
                     </form>
                 </div>
                 <div class="notification--profile">

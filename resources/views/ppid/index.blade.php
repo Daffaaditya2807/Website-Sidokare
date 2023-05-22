@@ -16,10 +16,15 @@
             <h2>E- <span>Sidokare</span></h2>
         </div>
         <div class="search--notification--profile">
-            <div class="search">
-                <input type="text" placeholder="Cari Pengajuan">
-                <button> <i class="ri-search-2-line"></i></button>
+        <div class="search">
+                    
+                    <form action="{{ route('aspirasi.index') }}" method="GET">
+                        
+                        <input type="text" name="search" placeholder="Cari Aspirasi" value="" type="submit" class="search-button"input>
+
+                    </form>
             </div>
+
             <div class="notification--profile">
                 <!-- <div class="picon bell">
                     <i class="ri-notification-2-line"></i> -->
@@ -112,6 +117,57 @@
         </div>
         <div class="main--content">
             <div class="overview">
+            <div class="title">
+                   <h2 title="section--title">Jumlah Pengajuan</h2>
+                </div>
+            <div class="cards">
+                  <div class="card card-1">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Diajukan</h5>
+                            <h1>{{ $total_diajukan }}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div>
+                  <div class="card card-2">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Diproses</h5>
+                            <h1>{{$total_diproses}}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div><div class="card card-3">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Direview</h5>
+                            <h1>{{$total_direview}}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div><div class="card card-4">
+                    <div class="card--data">
+                        <div class="card--content">
+                            <h5 class="card--title">Selesai</h5>
+                            <h1>{{$total_selesai}}</h1>
+                        </div>
+                        <i class="ri-bar-chart-fill card--icon--lg"></i>
+                    </div>
+                    <div class="card--stats">
+                        <span><i class=""></i></span>
+                    </div>
+                  </div>
+                </div>
                 <div class="title">
                    <h2 title="section--title">Tabel PPID </h2>
                 </div>
@@ -139,10 +195,7 @@
                         <td>
                         <div class="button-container">
                             @if($ppid->status == 'Revisi')
-                            <a href="{{ route('ppid.keberatan', $ppid->id) }}" class="ri-edit-line edit"></a>
-                            @endif
-                            @if ($ppid->status == 'Direvisi')
-                            <a href="{{ route('ppid.keberatan', $ppid->id) }}" class="ri-close-circle-line"></a>
+                            <a href="{{ route('ppid.keberatan', $ppid->id) }}" class="ri-question-mark"></a>
                             @endif
                             <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-edit-line edit"></a>
                             <form action="{{ route('ppid.destroy', $ppid->id) }}" method="POST" class="d-inline">

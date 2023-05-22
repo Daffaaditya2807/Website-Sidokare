@@ -17,9 +17,14 @@
         </div>
         <div class="search--notification--profile">
             <div class="search">
-                <input type="text" placeholder="Cari Pengajuan">
-                <button> <i class="ri-search-2-line"></i></button>
+                    
+                    <form action="{{ route('aspirasi.index') }}" method="GET">
+                        
+                        <input type="text" name="search" placeholder="Cari Aspirasi" value="" type="submit" class="search-button"input>
+
+                    </form>
             </div>
+
             <div class="notification--profile">
                 <!-- <div class="picon bell">
                     <i class="ri-notification-2-line"></i> -->

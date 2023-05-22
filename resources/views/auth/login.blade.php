@@ -24,7 +24,6 @@
     
             <div class="box-login">
                 <div class="login">
-                    <a href="/">< Kembali</a>
                     <div class="header">
                         <h2>Selamat Datang Kembali</h2>
                         <p>Mari mulai aktivitasmu kembali, selamat bekerja!</p>

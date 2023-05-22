@@ -79,7 +79,8 @@ Route::put('/ppid/{id}', [pengajuanppidController::class, 'update'])->name('ppid
 Route::delete('/ppid/{id}', [pengajuanppidController::class, 'destroy'])->name('ppid.destroy');
 Route::get('/ppid/{id}/keberatan', [pengajuanppidController::class, 'keberatan'])->name('ppid.keberatan');
 
-Route::get('/keluhan', [pengajuanppidController::class, 'index'])->name('ppid.index');
-Route::get('/keluhan/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');
-Route::put('/keluhan/{id}', [pengajuanppidController::class, 'update'])->name('ppid.update');
-Route::delete('/keluhan/{id}', [pengajuanppidController::class, 'destroy'])->name('ppid.destroy');
+Route::get('/keluhan', [pengajuankeluhanController::class, 'index'])->name('keluhan.index');
+Route::get('/keluhan/{id}/edit', [pengajuankeluhanController::class, 'edit'])->name('keluhan.edit');
+Route::put('/keluhan/{id}', [pengajuankeluhanController::class, 'update'])->name('keluhan.update');
+Route::delete('/keluhan/{id}', [pengajuankeluhanController::class, 'destroy'])->name('keluhan.destroy');
+Route::get('/keluhan/{id}/edit', [pengajuankeluhanController::class, 'keluhan'])->name('keluhan.keberatan');

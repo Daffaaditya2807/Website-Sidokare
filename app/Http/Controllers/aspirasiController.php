@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\Storage;
 
 class aspirasiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = $request->input('search');
+
         $aspirasi = DB::table('pengajuan_aspirasi')
-            ->join('akun', 'pengajuan_aspirasi.id_akun', '=', 'akun.id_akun')
-            ->get();
+                ->join('akun', 'pengajuan_aspirasi.id_akun', '=', 'akun.id_akun')
+                ->where('akun.nama', 'LIKE', '%' . $search . '%')
+                ->orWhere('pengajuan_aspirasi.judul_aspirasi', 'LIKE', '%' . $search . '%')
+                ->get();
         
         $total_diajukan = DB::table('pengajuan_aspirasi')
             ->where('status', 'Diajukan')
@@ -27,8 +31,11 @@ class aspirasiController extends Controller
         $total_selesai = DB::table('pengajuan_aspirasi')
             ->where('status', 'Selesai')
             ->count();
+        $total_ditolak = DB::table('pengajuan_aspirasi')
+            ->where('status', 'Ditolak')
+            ->count();
 
-        return view('aspirasi.index', compact('aspirasi', 'total_diajukan','total_diproses', 'total_direview', 'total_selesai'));
+        return view('aspirasi.index', compact('aspirasi', 'total_diajukan','total_diproses', 'total_direview', 'total_selesai', 'total_ditolak'));
     }
 
     public function edit($id)

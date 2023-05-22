@@ -92,15 +92,15 @@ class pengajuanppidController extends Controller
     public function keberatan($id)
     {
         $ppid = DB::table('keberatan_ppid')
-                        ->join('akun', 'keberatan_aspirasi.id_akun', '=', 'akun.id_akun')
+                        ->join('akun', 'keberatan_ppid.id_akun', '=', 'akun.id_akun')
                         ->where('id', $id)
                         ->first();
         $alasan = DB::table('keberatan_ppid')
-                        ->join('akun', 'keberatan_aspirasi.id_akun', '=', 'akun.id_akun')
+                        ->join('akun', 'keberatan_ppid.id_akun', '=', 'akun.id_akun')
                         ->where('id', $id)
                         ->get();
 
-        return view('aspirasi.keberatan', compact('ppid', 'alasan'));
+        return view('ppid.keberatan', compact('ppid', 'alasan'));
         // Logika untuk menampilkan keberatan dengan ID tertentu
     }
 }

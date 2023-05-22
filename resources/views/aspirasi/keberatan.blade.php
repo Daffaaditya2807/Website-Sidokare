@@ -117,7 +117,7 @@
                          </div>
                              <div class="column">
                                 <label for="Tanggal">Tanggal : </label>
-                                <label for="Tanggal"></label>
+                                <label for="Tanggal">{{ \Carbon\Carbon::parse($aspirasi->created_at)->format('Y-m-d')}}</label>
                              </div>
                              <div class="column">
                                 <label for="alamat">Alamat : </label>

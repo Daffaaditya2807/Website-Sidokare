@@ -18,7 +18,7 @@
         <div class="search--notification--profile">
         <div class="search">
                     
-                    <form action="{{ route('aspirasi.index') }}" method="GET">
+                    <form action="{{ route('ppid.index') }}" method="GET">
                         
                         <input type="text" name="search" placeholder="Cari Aspirasi" value="" type="submit" class="search-button"input>
 
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/formpengajuan">
+                        <a href="/keluhan">
                             <span class="icon icon-2"><i class="ri-file-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Keluhan</span>
                         </a>

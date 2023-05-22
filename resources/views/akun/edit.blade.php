@@ -112,6 +112,7 @@
                             <x-responsive-nav-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
+                                                <span class="icon icon-4"> <i class="ri-login-box-line"></i></span>   
                                 {{ __('Log Out') }}
                             </x-responsive-nav-link>
                         </form>

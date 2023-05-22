@@ -134,13 +134,21 @@
                         <form>
                          <div class="row">
                              <div class="column">
-                             <div class="column">
                                  <label for="judul">Nama Pelapor</label>
                                  <input type="text" class="form-control" id="nama_pelapor" name="nama_pelapor" value="{{ $ppid->nama }}" required>
                              </div>
+                             <div class="column">
                                  <label for="judul">Judul PPID</label>
                                  <input type="text" class="form-control" id="judul_aspirasi" name="judul_laporan" value="{{ $ppid->judul_laporan }}" required>
                              </div>
+                         </div>
+                         <div class="row">
+                         <div class="column">
+                                 <label for="judul">Kategori PPID</label>
+                                 <input type="text" class="form-control" id="judul_aspirasi" name="judul_laporan" value="{{ $ppid->judul_laporan }}" required>
+                         </div>
+                         </div>
+                         <div class="row">
                              <div class="column">
                                  <label for="tanggal_publikasi">Status</label>
                                  <select class="form-control" id="id_kategori" name="statusppid">
@@ -152,6 +160,7 @@
                                 </select>
                              </div>
                          </div>
+                        
 
                          <div class="row">
                             <div class="column">

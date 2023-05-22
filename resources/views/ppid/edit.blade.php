@@ -4,14 +4,24 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>edit aspirasi</title>
+        <title>Edit PPID</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita.css') }}">
      
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+<style>
+    .btn-primary {
+        margin-top: 10px; /* Atur jarak atas */
+        margin-right: 10px; /* Atur jarak kanan */
+        margin-bottom: 20px; /* Atur jarak bawah */
+        /* margin-left: auto;  */
+        /* Atur jarak kiri */
+    }
+</style>
 <body>
      <!--- header  -->
+
      <section class="header">
         <div class="logo">
             <i class="ri-menu-line icon icon-0 menu"></i>

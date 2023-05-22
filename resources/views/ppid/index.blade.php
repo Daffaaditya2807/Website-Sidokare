@@ -139,7 +139,7 @@
                         <td>
                         <div class="button-container">
                             @if($ppid->status == 'Revisi')
-                            <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-question-mark"></a>
+                            <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-edit-line edit"></a>
                             @endif
                             @if ($ppid->status == 'Direvisi')
                             <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-close-circle-line"></a>

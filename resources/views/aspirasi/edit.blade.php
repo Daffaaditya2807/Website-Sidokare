@@ -10,6 +10,15 @@
      
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+<style>
+    .btn-primary {
+        margin-top: 10px; /* Atur jarak atas */
+        margin-right: 10px; /* Atur jarak kanan */
+        margin-bottom: 20px; /* Atur jarak bawah */
+        /* margin-left: auto;  */
+        /* Atur jarak kiri */
+    }
+</style>
 <body>
      <!--- header  -->
      <section class="header">

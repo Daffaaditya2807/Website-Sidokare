@@ -442,7 +442,7 @@ td,th{
     border-radius: 30px;
     /* text-align: center; */
 }
-.ri-question-mark{
+.ri-error-warning-line{
     color: #4454cc;
     margin-right: -30px;
     border: none;

@@ -207,7 +207,7 @@
                         <td>
                         <div class="button-container">
                             @if($ppid->status == 'Revisi')
-                            <a href="{{ route('ppid.keberatan', $ppid->id) }}" class="ri-question-mark"></a>
+                            <a href="{{ route('ppid.keberatan', $ppid->id) }}" class="ri-error-warning-line"></a>
                             @endif
                             <a href="{{ route('ppid.edit', $ppid->id) }}" class="ri-edit-line edit"></a>
                             <form action="{{ route('ppid.destroy', $ppid->id) }}" method="POST" class="d-inline">

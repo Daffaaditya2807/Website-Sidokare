@@ -48,7 +48,7 @@
                     <li>
                         <a href="/formpengajuan">
                             <span class="icon icon-2"><i class="ri-bar-chart-grouped-line"></i></span>
-                            <span class="sidebar--item">Pengajuan PPID</span>
+                            <span class="sidebar--item">Pengajuan Keluhan</span>
                         </a>
                     </li>
                     <li>

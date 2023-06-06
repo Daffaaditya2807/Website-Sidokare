@@ -85,7 +85,7 @@ class pengajuankeluhanController extends Controller
     {
         $aspirasi = DB::table('pengajuan_keluhan')->where('id', $id)->delete();
     
-        return redirect()->route('aspirasi.index')->with('success', 'Keluhan berhasil dihapus.');
+        return redirect()->route('keluhan.index')->with('success', 'Keluhan berhasil dihapus.');
         // Logika untuk menghapus aspirasi dengan ID tertentu
     }
 

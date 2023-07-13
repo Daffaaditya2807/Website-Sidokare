@@ -42,7 +42,7 @@ class pengajuankeluhanController extends Controller
     {
         $keluhan = DB::table('pengajuan_keluhan')
                         ->join('akun', 'pengajuan_keluhan.id_akun', '=', 'akun.id_akun')
-                        ->where('pengajuan_keluhan.id', $id)
+                        ->where('pengajuan_keluhan.id_pengajuan_keluhan', $id)
                         ->first();
         
         return view('keluhan.edit', compact('keluhan'));
@@ -75,7 +75,7 @@ class pengajuankeluhanController extends Controller
             'doc_hasil_keluhan' => $filePath
         ];
 
-        DB::table('pengajuan_keluhan')->where('id', $id)->update($data);
+        DB::table('pengajuan_keluhan')->where('id_pengajuan_keluhan', $id)->update($data);
 
         return redirect()->route('keluhan.index')->with('success', 'Data keluhan berhasil diperbarui.');
     }
@@ -83,7 +83,7 @@ class pengajuankeluhanController extends Controller
 
     public function destroy($id)
     {
-        $aspirasi = DB::table('pengajuan_keluhan')->where('id', $id)->delete();
+        $aspirasi = DB::table('pengajuan_keluhan')->where('id_pengajuan_keluhan', $id)->delete();
     
         return redirect()->route('keluhan.index')->with('success', 'Keluhan berhasil dihapus.');
         // Logika untuk menghapus aspirasi dengan ID tertentu

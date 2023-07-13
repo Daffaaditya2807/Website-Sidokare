@@ -48,7 +48,7 @@
                     <li>
                         <a href="/formpengajuan">
                             <span class="icon icon-2"><i class="ri-bar-chart-grouped-line"></i></span>
-                            <span class="sidebar--item">Pengajuan Keluhan</span>
+                            <span class="sidebar--item">Pengajuan PPID</span>
                         </a>
                     </li>
                     <li>
@@ -207,10 +207,10 @@
                         <td>
                         <div class="button-container">
                             @if($keluhan->status == 'Revisi')
-                            <a href="{{ route('keluhan.keberatan', $keluhan->id) }}" class="ri-error-warning-line"></a>
+                            <a href="{{ route('keluhan.keberatan', $keluhan->id_pengajuan_keluhan) }}" class="ri-error-warning-line"></a>
                             @endif
-                            <a href="{{ route('keluhan.edit', $keluhan->id) }}" class="ri-edit-line edit"></a>
-                            <form action="{{ route('keluhan.destroy', $keluhan->id) }}" method="POST" class="d-inline">
+                            <a href="{{ route('keluhan.edit', $keluhan->id_pengajuan_keluhan) }}" class="ri-edit-line edit"></a>
+                            <form action="{{ route('keluhan.destroy', $keluhan->id_pengajuan_keluhan) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus keluhan ini?')"></button>

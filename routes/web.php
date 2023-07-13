@@ -64,8 +64,6 @@ Route::resource('users', AkunController::class);
 
 Route::post('/kirim-email', [EmailController::class, 'kirimEmail']);
 
-Route::post('/kirim-email', [EmailController::class , 'kirimEmail']);
-
 Route::resource('akun', AkunsController::class);
 
 Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');

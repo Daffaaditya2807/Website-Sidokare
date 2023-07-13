@@ -190,7 +190,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama Pelapor</th>
-                            <th>Judul Aspirasi</th>
+                            <th>Judul PPID</th>
                             <th>Status</th>
                             <th>Kategori</th>
                             <th>Aksi</th>

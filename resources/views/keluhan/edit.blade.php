@@ -127,7 +127,7 @@
                    <div class="container">
                     <header>Formulir Edit Keluhan Desa Sidokare</header>
             
-                    <form action="{{ route('keluhan.update', $keluhan->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('keluhan.update', $keluhan->id_pengajuan_keluhan) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <form>

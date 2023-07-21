@@ -10,8 +10,8 @@ class Berita extends Model
     use HasFactory;
     protected $table = 'berita';
     protected $fillable = [
-        'id',
-        'id_akun', 'tanggal_publikasi', 'id_kategori',
+        'id', 
+        'judul_berita', 'id_akun', 'tanggal_publikasi', 'id_kategori',
         'isi_berita', 'foto', 'unggah_file_lain'
     ];
     public static function search($query)

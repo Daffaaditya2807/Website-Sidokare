@@ -52,13 +52,13 @@ Route::get('/berita', function () {
     return view('berita');
 });
 
-Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
-Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
-Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
-Route::get('/berita/{berita}', [BeritaController::class, 'show'])->name('berita.show');
-Route::get('/berita/{berita}/edit', [BeritaController::class, 'edit'])->name('berita.edit');
-Route::put('/berita/{berita}', [BeritaController::class, 'update'])->name('berita.update');
-Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+Route::get('/berita', [BeritaController::class, 'index'])->middleware(['auth', 'verified'])->name('berita.index');
+Route::get('/berita/create', [BeritaController::class, 'create'])->middleware(['auth', 'verified'])->name('berita.create');
+Route::post('/berita', [BeritaController::class, 'store'])->middleware(['auth', 'verified'])->name('berita.store');
+Route::get('/berita/{berita}', [BeritaController::class, 'show'])->middleware(['auth', 'verified'])->name('berita.show');
+Route::get('/berita/{berita}/edit', [BeritaController::class, 'edit'])->middleware(['auth', 'verified'])->name('berita.edit');
+Route::put('/berita/{berita}', [BeritaController::class, 'update'])->middleware(['auth', 'verified'])->name('berita.update');
+Route::delete('/berita/{berita}', [BeritaController::class, 'destroy'])->middleware(['auth', 'verified'])->name('berita.destroy');
 
 Route::resource('users', AkunController::class);
 
@@ -66,20 +66,20 @@ Route::post('/kirim-email', [EmailController::class, 'kirimEmail']);
 
 Route::resource('akun', AkunsController::class);
 
-Route::get('/aspirasi', [AspirasiController::class, 'index'])->name('aspirasi.index');
-Route::get('/aspirasi/{id}/edit', [AspirasiController::class, 'edit'])->name('aspirasi.edit');
-Route::put('/aspirasi/{id}', [AspirasiController::class, 'update'])->name('aspirasi.update');
-Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy'])->name('aspirasi.destroy');
-Route::get('/aspirasi/{id}/keberatan', [AspirasiController::class, 'keberatan'])->name('aspirasi.keberatan');
+Route::get('/aspirasi', [AspirasiController::class, 'index'])->middleware(['auth', 'verified'])->name('aspirasi.index');
+Route::get('/aspirasi/{id}/edit', [AspirasiController::class, 'edit'])->middleware(['auth', 'verified'])->name('aspirasi.edit');
+Route::put('/aspirasi/{id}', [AspirasiController::class, 'update'])->middleware(['auth', 'verified'])->name('aspirasi.update');
+Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy'])->middleware(['auth', 'verified'])->name('aspirasi.destroy');
+Route::get('/aspirasi/{id}/keberatan', [AspirasiController::class, 'keberatan'])->middleware(['auth', 'verified'])->name('aspirasi.keberatan');
 
-Route::get('/formpengajuan', [pengajuanppidController::class, 'index'])->name('ppid.index');
-Route::get('/ppid/{id}/edit', [pengajuanppidController::class, 'edit'])->name('ppid.edit');
-Route::put('/ppid/{id}', [pengajuanppidController::class, 'update'])->name('ppid.update');
-Route::delete('/ppid/{id}', [pengajuanppidController::class, 'destroy'])->name('ppid.destroy');
-Route::get('/ppid/{id}/keberatan', [pengajuanppidController::class, 'keberatan'])->name('ppid.keberatan');
+Route::get('/formpengajuan', [pengajuanppidController::class, 'index'])->middleware(['auth', 'verified'])->name('ppid.index');
+Route::get('/ppid/{id}/edit', [pengajuanppidController::class, 'edit'])->middleware(['auth', 'verified'])->name('ppid.edit');
+Route::put('/ppid/{id}', [pengajuanppidController::class, 'update'])->middleware(['auth', 'verified'])->name('ppid.update');
+Route::delete('/ppid/{id}', [pengajuanppidController::class, 'destroy'])->middleware(['auth', 'verified'])->name('ppid.destroy');
+Route::get('/ppid/{id}/keberatan', [pengajuanppidController::class, 'keberatan'])->middleware(['auth', 'verified'])->name('ppid.keberatan');
 
-Route::get('/keluhan', [pengajuankeluhanController::class, 'index'])->name('keluhan.index');
-Route::get('/keluhan/{id}/edit', [pengajuankeluhanController::class, 'edit'])->name('keluhan.edit');
-Route::put('/keluhan/{id}', [pengajuankeluhanController::class, 'update'])->name('keluhan.update');
-Route::delete('/keluhan/{id}', [pengajuankeluhanController::class, 'destroy'])->name('keluhan.destroy');
-Route::get('/keluhan/{id}/keberatan', [pengajuankeluhanController::class, 'keberatan'])->name('keluhan.keberatan');
+Route::get('/keluhan', [pengajuankeluhanController::class, 'index'])->middleware(['auth', 'verified'])->name('keluhan.index');
+Route::get('/keluhan/{id}/edit', [pengajuankeluhanController::class, 'edit'])->middleware(['auth', 'verified'])->name('keluhan.edit');
+Route::put('/keluhan/{id}', [pengajuankeluhanController::class, 'update'])->middleware(['auth', 'verified'])->name('keluhan.update');
+Route::delete('/keluhan/{id}', [pengajuankeluhanController::class, 'destroy'])->middleware(['auth', 'verified'])->name('keluhan.destroy');
+Route::get('/keluhan/{id}/keberatan', [pengajuankeluhanController::class, 'keberatan'])->middleware(['auth', 'verified'])->name('keluhan.keberatan');

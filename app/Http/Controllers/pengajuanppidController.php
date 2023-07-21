@@ -30,24 +30,24 @@ class pengajuanppidController extends Controller
             ->count();
         $total_selesai = DB::table('pengajuan_ppids')
             ->where('status', 'Selesai')
-            ->count();    
+            ->count();
         $total_ditolak = DB::table('pengajuan_ppids')
             ->where('status', 'Ditolak')
             ->count();
 
-        return view('ppid.index', compact('ppid', 'total_diajukan','total_diproses', 'total_direview', 'total_selesai', 'total_ditolak'));
+        return view('ppid.index', compact('ppid', 'total_diajukan', 'total_diproses', 'total_direview', 'total_selesai', 'total_ditolak'));
     }
 
     public function edit($id)
     {
         $ppid = DB::table('pengajuan_ppids')
-                        ->join('akun', 'pengajuan_ppids.id_akun', '=', 'akun.id_akun')
-                        ->where('id', $id)
-                        ->first();
-        
+            ->join('akun', 'pengajuan_ppids.id_akun', '=', 'akun.id_akun')
+            ->where('id', $id)
+            ->first();
+
         return view('ppid.edit', compact('ppid'));
         // Logika untuk mengedit aspirasi dengan ID tertentu
-    }    
+    }
 
     public function update(Request $request, $id)
     {
@@ -56,9 +56,9 @@ class pengajuanppidController extends Controller
 
         if ($docppid) {
             $fileppid = $id . '_' . $docppid->getClientOriginalName();
-            $path = $docppid->storeAs('ppid', $fileppid, 'public');
+            $path = $docppid->storeAs('Hasilppids', $fileppid, 'public');
 
-            $existingFilePath = 'storage/ppid/' . $fileppid;
+            $existingFilePath = 'storage/Hasilppids/' . $fileppid;
             if (Storage::exists($existingFilePath)) {
                 Storage::delete($existingFilePath);
                 // File berhasil dihapus
@@ -66,7 +66,7 @@ class pengajuanppidController extends Controller
 
             // Path file yang diunggah (dalam folder public)
             $fileppid = 'storage/' . $path;
-        }else{
+        } else {
             $fileppid = "";
         }
 
@@ -84,7 +84,7 @@ class pengajuanppidController extends Controller
     public function destroy($id)
     {
         $ppid = DB::table('pengajuan_ppids')->where('id', $id)->delete();
-    
+
         return redirect()->route('ppid.index')->with('success', 'PPID berhasil dihapus.');
         // Logika untuk menghapus aspirasi dengan ID tertentu
     }
@@ -92,13 +92,13 @@ class pengajuanppidController extends Controller
     public function keberatan($id)
     {
         $ppid = DB::table('keberatan_ppid')
-                        ->join('akun', 'keberatan_ppid.id_akun', '=', 'akun.id_akun')
-                        ->where('id', $id)
-                        ->first();
+            ->join('akun', 'keberatan_ppid.id_akun', '=', 'akun.id_akun')
+            ->where('id', $id)
+            ->first();
         $alasan = DB::table('keberatan_ppid')
-                        ->join('akun', 'keberatan_ppid.id_akun', '=', 'akun.id_akun')
-                        ->where('id', $id)
-                        ->get();
+            ->join('akun', 'keberatan_ppid.id_akun', '=', 'akun.id_akun')
+            ->where('id', $id)
+            ->get();
 
         return view('ppid.keberatan', compact('ppid', 'alasan'));
         // Logika untuk menampilkan keberatan dengan ID tertentu

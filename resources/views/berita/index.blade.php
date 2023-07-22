@@ -164,8 +164,8 @@
                 
                 <td>
     <div class="button-container">
-        <a href="{{ route('berita.edit', $berita->id) }}" class="ri-edit-line edit"></a>
-        <form action="{{ route('berita.destroy', $berita->id) }}" method="POST" class="d-inline">
+        <a href="{{ route('berita.edit', $berita->id_berita) }}" class="ri-edit-line edit"></a>
+        <form action="{{ route('berita.destroy', $berita->id_berita) }}" method="POST" class="d-inline">
             @csrf
             @method('DELETE')
             <button type="submit" class="ri-delete-bin-line delete" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')"></button>

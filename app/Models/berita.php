@@ -9,10 +9,11 @@ class Berita extends Model
 {
     use HasFactory;
     protected $table = 'berita';
+    protected $primaryKey = 'id_berita';
     protected $fillable = [
-        'id', 
+        'id_berita', 
         'judul_berita', 'id_akun', 'tanggal_publikasi', 'id_kategori',
-        'isi_berita', 'foto', 'unggah_file_lain'
+        'isi_berita', 'foto', 'unggah_file_lain','user_id'
     ];
     public static function search($query)
     {
@@ -22,4 +23,5 @@ class Berita extends Model
             ->orWhere('isi_berita', 'like', '%' . $query . '%')
             ->get();
     }
+    
 }

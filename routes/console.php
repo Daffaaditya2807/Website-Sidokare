@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +15,12 @@ use Illuminate\Support\Facades\Artisan;
 | simple approach to interacting with each command's IO methods.
 |
 */
-
+class BeritaController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }}
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');

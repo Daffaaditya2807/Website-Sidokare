@@ -132,7 +132,7 @@
                    <div class="container">
                     <header>Formulir Edit Berita Desa Sidokare</header>
             
-                    <form action="{{ route('berita.update', $berita->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('berita.update', $berita->id_berita) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <form>
@@ -200,7 +200,7 @@
                             <br>
                             <input type="text" name="foto" id="foto" disabled class="form-control mt-2" value="{{ $berita->foto }}">
                             <br>
-                            <button class="btn btn-secondary" onclick="document.getElementById('foto').disabled = true; document.getElementById('foto').value = ''; document.getElementById('ganti-foto').click(); event.preventDefault();">Ganti Foto</button>
+                          
                             <input type="file" id="ganti-foto" name="ganti-foto" style="display: none;">
                           
                             <button class="btn btn-secondary" onclick="document.getElementById('ganti-foto').disabled = true; document.getElementById('ganti-foto').value = ''; document.getElementById('foto').disabled = false; document.getElementById('foto').click(); event.preventDefault();">Ganti File Foto</button>

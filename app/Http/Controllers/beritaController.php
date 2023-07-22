@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\Paginator;
+
+use Illuminate\Support\Facades\Auth;
 
 class BeritaController extends Controller
 {
@@ -46,27 +49,31 @@ class BeritaController extends Controller
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10048',
             'unggah_file_lain' => 'nullable',
         ]);
+       
     
         if ($request->hasFile('foto')) {
             $path = $request->file('foto')->store('public/berita');
             $validatedData['foto'] = basename($path);
         }
-    
+
+        $user = Auth::user();
+        $validatedData['user_id'] = $user->id;
+
         $berita = Berita::create($validatedData);
         return redirect()->route('berita.index');
         
     }
     
     
-    public function edit($id)
+    public function edit($id_berita)
 {
-    $berita = Berita::findOrFail($id);
+    $berita = Berita::findOrFail($id_berita);
     return view('berita.edit', compact('berita'));
 }
 
 
 
-public function update(Request $request, $id)
+public function update(Request $request, $id_berita)
 {
     $validatedData = $request->validate([
         'judul_berita' => 'required',
@@ -77,7 +84,7 @@ public function update(Request $request, $id)
         'unggah_file_lain' => 'nullable',
     ]);
 
-    $berita = Berita::findOrFail($id);
+    $berita = Berita::findOrFail($id_berita);
 
     // Menghapus foto lama jika ada perubahan foto
     if ($request->hasFile('foto') && $berita->foto) {
@@ -102,9 +109,9 @@ public function update(Request $request, $id)
 }
 
 
-    public function destroy($id)
+    public function destroy($id_berita)
     {
-        $berita = Berita::findOrFail($id);
+        $berita = Berita::findOrFail($id_berita);
         $berita->delete();
     
         return redirect()->route('berita.index');

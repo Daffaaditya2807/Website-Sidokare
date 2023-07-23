@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pengajuan</title>
+        <title>Tambah Akun</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/berita1.css') }}">   
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
@@ -115,7 +115,7 @@
                 <div class="title">
                    <!-- <h2 title="section--title">Formulir Pengajuan </h2> -->
                    <div class="container">
-                    <header>Tambah Akun Pegawai</header>
+                    <header>Tambah Akun</header>
                
             
                     @if ($errors->any())

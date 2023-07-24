@@ -68,11 +68,12 @@ class pengajuankeluhanController extends Controller
             $filePath = 'storage/' . $path;
         } else {
             $filePath = "";
+            $fileName = "";
         }
 
         $data = [
             'status' => $status,
-            'doc_hasil_keluhan' => $filePath
+            'doc_hasil_keluhan' => $fileName
         ];
 
         DB::table('pengajuan_keluhan')->where('id_pengajuan_keluhan', $id)->update($data);

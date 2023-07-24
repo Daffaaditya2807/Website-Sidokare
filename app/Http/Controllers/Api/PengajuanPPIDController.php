@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiFormater;
 use App\Http\Controllers\Controller;
@@ -43,7 +43,7 @@ class PengajuanPPIDController extends Controller
                 'tujuan' => $request->tujuan,
                 'kategori_ppid' => $request->kategori_ppid,
                 'upload_file_pendukung' => $request->upload_file_pendukung,
-                'status' => 'diajukan',
+                'status' => 'Diajukan',
                 'RT' => $request->RT,
                 'RW' => $request->RW
             ]
@@ -55,7 +55,7 @@ class PengajuanPPIDController extends Controller
     {
         $request->validate(['id' => 'required']);
         $updateStatus = PengajuanPPIDModel::where('id', '=', $request->id);
-        $updateStatus->update(['status' => 'diterima']);
+        $updateStatus->update(['status' => 'Diterima']);
 
         return ApiFormater::createApi(200, 'succes', 'Berhasil Update');
     }

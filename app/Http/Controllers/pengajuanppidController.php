@@ -65,7 +65,7 @@ class pengajuanppidController extends Controller
             }
 
             // Path file yang diunggah (dalam folder public)
-            $fileppid = 'storage/' . $path;
+            // $fileppid = 'storage/' . $path;
         } else {
             $fileppid = "";
         }

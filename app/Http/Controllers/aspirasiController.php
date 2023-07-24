@@ -67,12 +67,13 @@ class aspirasiController extends Controller
             // Path file yang diunggah (dalam folder public)
             $filePath = 'storage/' . $path;
         } else {
-            $filePath = "";
+            // $filePath = "";
+            $fileName = "";
         }
 
         $data = [
             'status' => $status,
-            'doc_hasil_ppid' => $filePath
+            'doc_hasil_ppid' => $fileName
         ];
 
         DB::table('pengajuan_aspirasi')->where('id_pengajuan_aspirasi', $id)->update($data);

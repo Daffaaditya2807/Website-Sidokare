@@ -24,7 +24,7 @@ class PengajuanAspirasiController extends Controller
                 'judul_aspirasi' => $request->judul_aspirasi,
                 'isi_aspirasi' => $request->isi_aspirasi,
                 'upload_file_pendukung' => $request->upload_file_pendukung,
-                'status' => 'diajukan'
+                'status' => 'Diajukan'
             ]);
             return ApiFormater::createApi(200, 'Succeas', [
                 'kode' => '1',
@@ -52,7 +52,7 @@ class PengajuanAspirasiController extends Controller
     {
         $request->validate(['id_pengajuan_aspirasi' => 'required']);
         $updateStatus = PengajuanAspirasi::where('id_pengajuan_aspirasi', '=', $request->id_pengajuan_aspirasi);
-        $updateStatus->update(['status' => 'diterima']);
+        $updateStatus->update(['status' => 'Diterima']);
 
         return ApiFormater::createApi(200, 'succes', 'Berhasil Update');
     }

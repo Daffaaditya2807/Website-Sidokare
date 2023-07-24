@@ -10,8 +10,8 @@ use App\Http\Controllers\api\KomentarController;
 use App\Http\Controllers\Api\PengajuanAspirasiController;
 use App\Http\Controllers\Api\PengajuanKeluhan;
 use App\Http\Controllers\Api\PengajuanKeluhanController;
-use App\Http\Controllers\api\PengajuanPPIDController;
-use App\Http\Controllers\api\ProfileController;
+use App\Http\Controllers\Api\PengajuanPPIDController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Models\PengajuanAspirasi;
 
 /*

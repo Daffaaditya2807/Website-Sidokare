@@ -36,7 +36,7 @@ class Keberatan extends Controller
                 'updated_at' => now(),
             ]);
             $updateStatus = PengajuanKeluhan::where('id_pengajuan_keluhan', '=', $request->id_keluhan);
-            $updateStatus->update(['status' => 'revisi']);
+            $updateStatus->update(['status' => 'Revisi']);
 
             return ApiFormater::createApi('200', 'succes', [
                 'kode' => '404', 'data' => $pengajuanBeratKeluhan
@@ -68,7 +68,7 @@ class Keberatan extends Controller
                 'updated_at' => now(),
             ]);
             $updateStatus = PengajuanPPIDModel::where('id', '=', $request->id);
-            $updateStatus->update(['status' => 'revisi']);
+            $updateStatus->update(['status' => 'Revisi']);
 
             return ApiFormater::createApi('200', 'succes', [
                 'kode' => '404', 'data' => $pengajuanKeberanPPID
@@ -99,7 +99,7 @@ class Keberatan extends Controller
                 'updated_at' => now(),
             ]);
             $updateStatus = PengajuanAspirasi::where('id_pengajuan_aspirasi', '=', $request->id_aspirasi);
-            $updateStatus->update(['status' => 'revisi']);
+            $updateStatus->update(['status' => 'Revisi']);
 
             return ApiFormater::createApi('200', 'succes', [
                 'kode' => '404', 'data' => $pengajuanKeberatanAspirasi

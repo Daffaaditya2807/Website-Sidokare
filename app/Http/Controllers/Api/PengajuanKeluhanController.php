@@ -32,7 +32,7 @@ class PengajuanKeluhanController extends Controller
             'kategori_laporan' => $request->kategori_laporan,
             'tanggal_kejadian' => $request->tanggal_kejadian,
             'upload_file_pendukung' => $request->upload_file_pendukung,
-            'status' => 'diajukan',
+            'status' => 'Diajukan',
             'RT' => $request->RT,
             'RW' => $request->RW
         ]);
@@ -45,7 +45,7 @@ class PengajuanKeluhanController extends Controller
     {
         $request->validate(['id_pengajuan_keluhan' => 'required']);
         $updateStatus = PengajuanKeluhan::where('id_pengajuan_keluhan', '=', $request->id_pengajuan_keluhan);
-        $updateStatus->update(['status' => 'diterima']);
+        $updateStatus->update(['status' => 'Diterima']);
 
         return ApiFormater::createApi(200, 'succes', 'Berhasil Update');
     }

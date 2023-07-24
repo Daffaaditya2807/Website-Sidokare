@@ -55,7 +55,7 @@
                     </li>
                     <li>
                         <a href="/keluhan">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-file-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Keluhan</span>
                         </a>
                     </li>

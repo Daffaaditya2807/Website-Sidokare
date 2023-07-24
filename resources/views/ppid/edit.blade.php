@@ -172,7 +172,7 @@
                             <label for="foto" class="form-label">Foto</label>
                         
                                 @if ($ppid->upload_file_pendukung)
-                                    <img src="{{ asset('storage/ppid/'.$ppid->upload_file_pendukung) }}" alt="{{ $ppid->upload_file_pendukung }}">
+                                    <img src="{{ url('storage/app/public/ppid/'.$ppid->upload_file_pendukung) }}" alt="{{ $ppid->upload_file_pendukung }}">
                                 @endif
                                 <input type="file" id="foto" name="foto" style="display: none;">
                         </div>

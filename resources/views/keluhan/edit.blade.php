@@ -176,7 +176,7 @@
                                             <label for="foto" class="form-label">Foto</label>
 
                                             @if ($keluhan->upload_file_pendukung)
-                                            <img src="{{ asset('storage/keluhan/'.$keluhan->upload_file_pendukung) }}" alt="{{ $keluhan->upload_file_pendukung }}">
+                                            <img src="{{ url('storage/app/public/keluhan/'.$keluhan->upload_file_pendukung) }}" alt="{{ $keluhan->upload_file_pendukung }}">
                                             @endif
                                             <input type="file" id="foto" name="foto" style="display: none;">
                                         </div>

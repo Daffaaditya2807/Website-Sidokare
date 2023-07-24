@@ -162,7 +162,7 @@
                             <label for="foto" class="form-label">Foto</label>
                         
                                 @if ($aspirasi->upload_file_pendukung)
-                                    <img src="{{ asset('storage/aspirasi/'.$aspirasi->upload_file_pendukung) }}" alt="{{ $aspirasi->upload_file_pendukung }}">
+                                    <img src="{{ url('storage/app/public/aspirasi/'.$aspirasi->upload_file_pendukung) }}" alt="{{ $aspirasi->upload_file_pendukung }}">
                                 @endif
                                 <input type="file" id="foto" name="foto" style="display: none;">
                         </div>

@@ -84,7 +84,7 @@
             <i class="fas fa-times video-popup-close"></i>
             <div class="iframe-box">
                 <!-- <iframe id="player-1"  src="https://www.youtube.com/embed/hBelhQ6-3WU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-                <iframe id="player-1" src="https://www.youtube.com/embed/97WRJwkfenI" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe id="player-1" src="" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
        </div> 

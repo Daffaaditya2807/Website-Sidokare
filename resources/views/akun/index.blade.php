@@ -1,12 +1,10 @@
-<!-- resources/views/akun/index.blade.php -->
-
 <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Daftar Pegawai</title>
+        <title>Daftar Akun</title>
         <link rel="stylesheet" href="{{ asset('frontend/assets/css/styledashboard.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
     </head>
@@ -59,7 +57,7 @@
                     </li>
                     <li>
                         <a href="/keluhan">
-                            <span class="icon icon-2"><i class="ri-line-chart-line"></i></span>
+                            <span class="icon icon-2"><i class="ri-file-chart-line"></i></span>
                             <span class="sidebar--item">Pengajuan Keluhan</span>
                         </a>
                     </li>
@@ -119,7 +117,7 @@
             <div class="main--content">
                 <div class="overview">
                 <div class="title">
-                   <h2 title="section--title">Tambah Akun Baru</h2>
+                   <h2 title="section--title">Daftar Akun</h2>
 
     @if(session('success'))
         <div class="alert alert-success">
